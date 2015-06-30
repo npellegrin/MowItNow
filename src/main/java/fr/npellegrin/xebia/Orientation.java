@@ -1,5 +1,5 @@
 package fr.npellegrin.xebia;
 
 public enum Orientation {
-	North
+	North, South, East, West
 }

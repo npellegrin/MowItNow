@@ -13,4 +13,25 @@ public class MowerTest {
 		assertThat(mower.getOrientation()).isEqualTo(Orientation.North);
 	}
 
+	@Test
+	public void should_rotate_south() {
+		Mower mower = new Mower();
+		mower.rotate(Orientation.South);
+		assertThat(mower.getOrientation()).isEqualTo(Orientation.South);
+	}
+
+	@Test
+	public void should_rotate_east() {
+		Mower mower = new Mower();
+		mower.rotate(Orientation.East);
+		assertThat(mower.getOrientation()).isEqualTo(Orientation.East);
+	}
+
+	@Test
+	public void should_rotate_west() {
+		Mower mower = new Mower();
+		mower.rotate(Orientation.West);
+		assertThat(mower.getOrientation()).isEqualTo(Orientation.West);
+	}
+
 }

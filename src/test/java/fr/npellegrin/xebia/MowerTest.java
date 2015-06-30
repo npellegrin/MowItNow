@@ -34,4 +34,12 @@ public class MowerTest {
 		assertThat(mower.getOrientation()).isEqualTo(Orientation.West);
 	}
 
+	@Test
+	public void should_move_north() {
+		Mower mower = new Mower(new Position(0, 0), Orientation.North);
+		mower.move();
+		assertThat(mower.getPosition().getX()).isEqualTo(0);
+		assertThat(mower.getPosition().getY()).isEqualTo(1);
+	}
+
 }

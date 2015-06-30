@@ -13,34 +13,6 @@ import fr.npellegrin.xebia.environment.WestOrientation;
 public class MowerTest {
 
 	@Test
-	public void should_rotate_north() {
-		Mower mower = new Mower();
-		mower.rotate(NorthOrientation.getInstance());
-		assertThat(mower.getOrientation()).isEqualTo(NorthOrientation.getInstance());
-	}
-
-	@Test
-	public void should_rotate_south() {
-		Mower mower = new Mower();
-		mower.rotate(SouthOrientation.getInstance());
-		assertThat(mower.getOrientation()).isEqualTo(SouthOrientation.getInstance());
-	}
-
-	@Test
-	public void should_rotate_east() {
-		Mower mower = new Mower();
-		mower.rotate(EastOrientation.getInstance());
-		assertThat(mower.getOrientation()).isEqualTo(EastOrientation.getInstance());
-	}
-
-	@Test
-	public void should_rotate_west() {
-		Mower mower = new Mower();
-		mower.rotate(WestOrientation.getInstance());
-		assertThat(mower.getOrientation()).isEqualTo(WestOrientation.getInstance());
-	}
-
-	@Test
 	public void should_move_north() {
 		Mower mower = new Mower(new Position(0, 0), NorthOrientation.getInstance());
 		mower.move();

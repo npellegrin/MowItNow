@@ -1,4 +1,4 @@
-package fr.npellegrin.xebia;
+package fr.npellegrin.xebia.environment;
 
 public class Position {
 	private int x;
@@ -15,6 +15,11 @@ public class Position {
 
 	public int getY() {
 		return y;
+	}
+
+	public void push(Orientation orientation) {
+		this.x += orientation.getXVector();
+		this.y += orientation.getYVector();
 	}
 
 }

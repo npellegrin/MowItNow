@@ -42,4 +42,28 @@ public class MowerTest {
 		assertThat(mower.getPosition().getY()).isEqualTo(1);
 	}
 
+	@Test
+	public void should_move_south() {
+		Mower mower = new Mower(new Position(0, 0), Orientation.South);
+		mower.move();
+		assertThat(mower.getPosition().getX()).isEqualTo(0);
+		assertThat(mower.getPosition().getY()).isEqualTo(-1);
+	}
+
+	@Test
+	public void should_move_east() {
+		Mower mower = new Mower(new Position(0, 0), Orientation.East);
+		mower.move();
+		assertThat(mower.getPosition().getX()).isEqualTo(1);
+		assertThat(mower.getPosition().getY()).isEqualTo(0);
+	}
+
+	@Test
+	public void should_move_west() {
+		Mower mower = new Mower(new Position(0, 0), Orientation.West);
+		mower.move();
+		assertThat(mower.getPosition().getX()).isEqualTo(-1);
+		assertThat(mower.getPosition().getY()).isEqualTo(0);
+	}
+
 }

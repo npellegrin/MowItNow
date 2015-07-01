@@ -27,9 +27,15 @@ public class Mower {
 		case "D":
 			rotateRight();
 			break;
+		case "G":
+			rotateLeft();
+			break;
 		}
 	}
 
+	/**
+	 * Rotate mower on right.
+	 */
 	private void rotateRight() {
 		if (NorthOrientation.getInstance().equals(orientation)) {
 			orientation = EastOrientation.getInstance();
@@ -38,6 +44,21 @@ public class Mower {
 		} else if (SouthOrientation.getInstance().equals(orientation)) {
 			orientation = WestOrientation.getInstance();
 		} else if (WestOrientation.getInstance().equals(orientation)) {
+			orientation = NorthOrientation.getInstance();
+		}
+	}
+
+	/**
+	 * Rotate mower on left.
+	 */
+	private void rotateLeft() {
+		if (NorthOrientation.getInstance().equals(orientation)) {
+			orientation = WestOrientation.getInstance();
+		} else if (WestOrientation.getInstance().equals(orientation)) {
+			orientation = SouthOrientation.getInstance();
+		} else if (SouthOrientation.getInstance().equals(orientation)) {
+			orientation = EastOrientation.getInstance();
+		} else if (EastOrientation.getInstance().equals(orientation)) {
 			orientation = NorthOrientation.getInstance();
 		}
 	}

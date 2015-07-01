@@ -1,4 +1,4 @@
-package fr.npellegrin.xebia.mower.environment;
+package fr.npellegrin.xebia.mower.orientation;
 
 public class Position {
 	private int x;

@@ -1,11 +1,7 @@
 package fr.npellegrin.xebia.mower;
 
-import fr.npellegrin.xebia.mower.environment.EastOrientation;
-import fr.npellegrin.xebia.mower.environment.NorthOrientation;
-import fr.npellegrin.xebia.mower.environment.Orientation;
-import fr.npellegrin.xebia.mower.environment.Position;
-import fr.npellegrin.xebia.mower.environment.SouthOrientation;
-import fr.npellegrin.xebia.mower.environment.WestOrientation;
+import fr.npellegrin.xebia.mower.orientation.Orientation;
+import fr.npellegrin.xebia.mower.orientation.Position;
 
 public class Mower {
 	private Orientation orientation;
@@ -37,30 +33,14 @@ public class Mower {
 	 * Rotate mower on right.
 	 */
 	private void rotateRight() {
-		if (NorthOrientation.getInstance().equals(orientation)) {
-			orientation = EastOrientation.getInstance();
-		} else if (EastOrientation.getInstance().equals(orientation)) {
-			orientation = SouthOrientation.getInstance();
-		} else if (SouthOrientation.getInstance().equals(orientation)) {
-			orientation = WestOrientation.getInstance();
-		} else if (WestOrientation.getInstance().equals(orientation)) {
-			orientation = NorthOrientation.getInstance();
-		}
+		orientation.rotateRight();
 	}
 
 	/**
 	 * Rotate mower on left.
 	 */
 	private void rotateLeft() {
-		if (NorthOrientation.getInstance().equals(orientation)) {
-			orientation = WestOrientation.getInstance();
-		} else if (WestOrientation.getInstance().equals(orientation)) {
-			orientation = SouthOrientation.getInstance();
-		} else if (SouthOrientation.getInstance().equals(orientation)) {
-			orientation = EastOrientation.getInstance();
-		} else if (EastOrientation.getInstance().equals(orientation)) {
-			orientation = NorthOrientation.getInstance();
-		}
+		orientation.rotateLeft();
 	}
 
 	/**
@@ -68,13 +48,6 @@ public class Mower {
 	 */
 	private void move() {
 		position.push(orientation);
-	}
-
-	/**
-	 * Rotate mower (change orientation).
-	 */
-	private void rotate(Orientation orientation) {
-		this.orientation = orientation;
 	}
 
 	/**

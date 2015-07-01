@@ -13,42 +13,6 @@ import fr.npellegrin.xebia.environment.WestOrientation;
 public class MowerTest {
 
 	@Test
-	public void should_move_north() {
-		Mower mower = new Mower(new Position(0, 0), NorthOrientation.getInstance());
-		mower.move();
-		assertThat(mower.getPosition().getX()).isEqualTo(0);
-		assertThat(mower.getPosition().getY()).isEqualTo(1);
-		assertThat(mower.getOrientation()).isEqualTo(NorthOrientation.getInstance());
-	}
-
-	@Test
-	public void should_move_south() {
-		Mower mower = new Mower(new Position(0, 0), SouthOrientation.getInstance());
-		mower.move();
-		assertThat(mower.getPosition().getX()).isEqualTo(0);
-		assertThat(mower.getPosition().getY()).isEqualTo(-1);
-		assertThat(mower.getOrientation()).isEqualTo(SouthOrientation.getInstance());
-	}
-
-	@Test
-	public void should_move_east() {
-		Mower mower = new Mower(new Position(0, 0), EastOrientation.getInstance());
-		mower.move();
-		assertThat(mower.getPosition().getX()).isEqualTo(1);
-		assertThat(mower.getPosition().getY()).isEqualTo(0);
-		assertThat(mower.getOrientation()).isEqualTo(EastOrientation.getInstance());
-	}
-
-	@Test
-	public void should_move_west() {
-		Mower mower = new Mower(new Position(0, 0), WestOrientation.getInstance());
-		mower.move();
-		assertThat(mower.getPosition().getX()).isEqualTo(-1);
-		assertThat(mower.getPosition().getY()).isEqualTo(0);
-		assertThat(mower.getOrientation()).isEqualTo(WestOrientation.getInstance());
-	}
-
-	@Test
 	public void should_move_north_when_oriented_north_and_accept_A() {
 		Mower mower = new Mower(new Position(0, 0), NorthOrientation.getInstance());
 		mower.accept("A");

@@ -48,4 +48,13 @@ public class MowerTest {
 		assertThat(mower.getOrientation()).isEqualTo(WestOrientation.getInstance());
 	}
 
+	@Test
+	public void should_move_north_when_oriented_north_and_accept_A() {
+		Mower mower = new Mower(new Position(0, 0), NorthOrientation.getInstance());
+		mower.accept("A");
+		assertThat(mower.getPosition().getX()).isEqualTo(0);
+		assertThat(mower.getPosition().getY()).isEqualTo(1);
+		assertThat(mower.getOrientation()).isEqualTo(NorthOrientation.getInstance());
+	}
+
 }

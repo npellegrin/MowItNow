@@ -15,15 +15,27 @@ public class Mower {
 		this.orientation = orientation;
 	}
 
+	/**
+	 * Move mower according given instruction.
+	 */
+	public void accept(String instruction) {
+		switch (instruction) {
+		case "A":
+			move();
+		}
+	}
+
+	// FIXME: will became private
 	public void move() {
 		position.push(orientation);
 	}
 
+	// FIXME: will became private
 	public void rotate(Orientation orientation) {
 		this.orientation = orientation;
 	}
 
-	Orientation getOrientation() {
+	public Orientation getOrientation() {
 		return orientation;
 	}
 

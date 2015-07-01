@@ -19,7 +19,8 @@ public class MowerTest {
 		mower.accept("A");
 		assertThat(mower.getPosition().getX()).isEqualTo(0);
 		assertThat(mower.getPosition().getY()).isEqualTo(1);
-		assertThat(mower.getOrientation()).isEqualTo(NorthDirection.getInstance());
+		assertThat(mower.getOrientation().getXVector()).isEqualTo(0);
+		assertThat(mower.getOrientation().getYVector()).isEqualTo(1);
 	}
 
 	@Test
@@ -28,7 +29,8 @@ public class MowerTest {
 		mower.accept("A");
 		assertThat(mower.getPosition().getX()).isEqualTo(0);
 		assertThat(mower.getPosition().getY()).isEqualTo(-1);
-		assertThat(mower.getOrientation()).isEqualTo(SouthDirection.getInstance());
+		assertThat(mower.getOrientation().getXVector()).isEqualTo(0);
+		assertThat(mower.getOrientation().getYVector()).isEqualTo(-1);
 	}
 
 	@Test
@@ -37,7 +39,8 @@ public class MowerTest {
 		mower.accept("A");
 		assertThat(mower.getPosition().getX()).isEqualTo(1);
 		assertThat(mower.getPosition().getY()).isEqualTo(0);
-		assertThat(mower.getOrientation()).isEqualTo(EastDirection.getInstance());
+		assertThat(mower.getOrientation().getXVector()).isEqualTo(1);
+		assertThat(mower.getOrientation().getYVector()).isEqualTo(0);
 	}
 
 	@Test
@@ -46,7 +49,8 @@ public class MowerTest {
 		mower.accept("A");
 		assertThat(mower.getPosition().getX()).isEqualTo(-1);
 		assertThat(mower.getPosition().getY()).isEqualTo(0);
-		assertThat(mower.getOrientation()).isEqualTo(WestDirection.getInstance());
+		assertThat(mower.getOrientation().getXVector()).isEqualTo(-1);
+		assertThat(mower.getOrientation().getYVector()).isEqualTo(0);
 	}
 
 	@Test

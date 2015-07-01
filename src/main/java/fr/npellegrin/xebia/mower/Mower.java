@@ -1,6 +1,6 @@
 package fr.npellegrin.xebia.mower;
 
-import fr.npellegrin.xebia.mower.exceptions.InvalidInstructionException;
+import fr.npellegrin.xebia.mower.controls.Instruction;
 import fr.npellegrin.xebia.mower.orientation.Orientation;
 import fr.npellegrin.xebia.mower.orientation.Position;
 
@@ -16,40 +16,28 @@ public class Mower {
 	/**
 	 * Move mower according given instruction.
 	 */
-	public void accept(String instruction) throws InvalidInstructionException {
-		switch (instruction) {
-		case "A":
-			move();
-			break;
-		case "D":
-			rotateRight();
-			break;
-		case "G":
-			rotateLeft();
-			break;
-		default:
-			throw new InvalidInstructionException(String.format("Instruction %s is invalid for mower", instruction));
-		}
+	public void accept(Instruction instruction) {
+		instruction.applyOn(this);
 	}
 
 	/**
 	 * Rotate mower on right.
 	 */
-	private void rotateRight() {
+	public void rotateRight() {
 		orientation.rotateRight();
 	}
 
 	/**
 	 * Rotate mower on left.
 	 */
-	private void rotateLeft() {
+	public void rotateLeft() {
 		orientation.rotateLeft();
 	}
 
 	/**
 	 * Move mower forward (depends orientation).
 	 */
-	private void move() {
+	public void move() {
 		position.push(orientation);
 	}
 

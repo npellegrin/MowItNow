@@ -4,105 +4,105 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 
-import fr.npellegrin.xebia.mower.Mower;
-import fr.npellegrin.xebia.mower.environment.EastOrientation;
-import fr.npellegrin.xebia.mower.environment.NorthOrientation;
-import fr.npellegrin.xebia.mower.environment.Position;
-import fr.npellegrin.xebia.mower.environment.SouthOrientation;
-import fr.npellegrin.xebia.mower.environment.WestOrientation;
+import fr.npellegrin.xebia.mower.orientation.EastDirection;
+import fr.npellegrin.xebia.mower.orientation.NorthDirection;
+import fr.npellegrin.xebia.mower.orientation.Orientation;
+import fr.npellegrin.xebia.mower.orientation.Position;
+import fr.npellegrin.xebia.mower.orientation.SouthDirection;
+import fr.npellegrin.xebia.mower.orientation.WestDirection;
 
 public class MowerTest {
 
 	@Test
 	public void should_move_north_when_oriented_north_and_accept_A() {
-		Mower mower = new Mower(new Position(0, 0), NorthOrientation.getInstance());
+		Mower mower = new Mower(new Position(0, 0), new Orientation(NorthDirection.getInstance()));
 		mower.accept("A");
 		assertThat(mower.getPosition().getX()).isEqualTo(0);
 		assertThat(mower.getPosition().getY()).isEqualTo(1);
-		assertThat(mower.getOrientation()).isEqualTo(NorthOrientation.getInstance());
+		assertThat(mower.getOrientation()).isEqualTo(NorthDirection.getInstance());
 	}
 
 	@Test
 	public void should_move_south_when_oriented_south_and_accept_A() {
-		Mower mower = new Mower(new Position(0, 0), SouthOrientation.getInstance());
+		Mower mower = new Mower(new Position(0, 0), new Orientation(SouthDirection.getInstance()));
 		mower.accept("A");
 		assertThat(mower.getPosition().getX()).isEqualTo(0);
 		assertThat(mower.getPosition().getY()).isEqualTo(-1);
-		assertThat(mower.getOrientation()).isEqualTo(SouthOrientation.getInstance());
+		assertThat(mower.getOrientation()).isEqualTo(SouthDirection.getInstance());
 	}
 
 	@Test
 	public void should_move_east_when_oriented_east_and_accept_A() {
-		Mower mower = new Mower(new Position(0, 0), EastOrientation.getInstance());
+		Mower mower = new Mower(new Position(0, 0), new Orientation(EastDirection.getInstance()));
 		mower.accept("A");
 		assertThat(mower.getPosition().getX()).isEqualTo(1);
 		assertThat(mower.getPosition().getY()).isEqualTo(0);
-		assertThat(mower.getOrientation()).isEqualTo(EastOrientation.getInstance());
+		assertThat(mower.getOrientation()).isEqualTo(EastDirection.getInstance());
 	}
 
 	@Test
 	public void should_move_west_when_oriented_west_and_accept_A() {
-		Mower mower = new Mower(new Position(0, 0), WestOrientation.getInstance());
+		Mower mower = new Mower(new Position(0, 0), new Orientation(WestDirection.getInstance()));
 		mower.accept("A");
 		assertThat(mower.getPosition().getX()).isEqualTo(-1);
 		assertThat(mower.getPosition().getY()).isEqualTo(0);
-		assertThat(mower.getOrientation()).isEqualTo(WestOrientation.getInstance());
+		assertThat(mower.getOrientation()).isEqualTo(WestDirection.getInstance());
 	}
 
 	@Test
 	public void should_be_oriented_east_when_oriented_north_and_accept_D() {
-		Mower mower = new Mower(new Position(0, 0), NorthOrientation.getInstance());
+		Mower mower = new Mower(new Position(0, 0), new Orientation(NorthDirection.getInstance()));
 		mower.accept("D");
-		assertThat(mower.getOrientation()).isEqualTo(EastOrientation.getInstance());
+		assertThat(mower.getOrientation()).isEqualTo(EastDirection.getInstance());
 	}
 
 	@Test
 	public void should_be_oriented_south_when_oriented_east_and_accept_D() {
-		Mower mower = new Mower(new Position(0, 0), EastOrientation.getInstance());
+		Mower mower = new Mower(new Position(0, 0), new Orientation(EastDirection.getInstance()));
 		mower.accept("D");
-		assertThat(mower.getOrientation()).isEqualTo(SouthOrientation.getInstance());
+		assertThat(mower.getOrientation()).isEqualTo(SouthDirection.getInstance());
 	}
 
 	@Test
 	public void should_be_oriented_west_when_oriented_south_and_accept_D() {
-		Mower mower = new Mower(new Position(0, 0), SouthOrientation.getInstance());
+		Mower mower = new Mower(new Position(0, 0), new Orientation(SouthDirection.getInstance()));
 		mower.accept("D");
-		assertThat(mower.getOrientation()).isEqualTo(WestOrientation.getInstance());
+		assertThat(mower.getOrientation()).isEqualTo(WestDirection.getInstance());
 	}
 
 	@Test
 	public void should_be_oriented_north_when_oriented_west_and_accept_D() {
-		Mower mower = new Mower(new Position(0, 0), WestOrientation.getInstance());
+		Mower mower = new Mower(new Position(0, 0), new Orientation(WestDirection.getInstance()));
 		mower.accept("D");
-		assertThat(mower.getOrientation()).isEqualTo(NorthOrientation.getInstance());
+		assertThat(mower.getOrientation()).isEqualTo(NorthDirection.getInstance());
 	}
 
 	@Test
 	public void should_be_oriented_west_when_oriented_north_and_accept_G() {
-		Mower mower = new Mower(new Position(0, 0), NorthOrientation.getInstance());
+		Mower mower = new Mower(new Position(0, 0), new Orientation(NorthDirection.getInstance()));
 		mower.accept("G");
-		assertThat(mower.getOrientation()).isEqualTo(WestOrientation.getInstance());
+		assertThat(mower.getOrientation()).isEqualTo(WestDirection.getInstance());
 	}
 
 	@Test
 	public void should_be_oriented_north_when_oriented_east_and_accept_G() {
-		Mower mower = new Mower(new Position(0, 0), EastOrientation.getInstance());
+		Mower mower = new Mower(new Position(0, 0), new Orientation(EastDirection.getInstance()));
 		mower.accept("G");
-		assertThat(mower.getOrientation()).isEqualTo(NorthOrientation.getInstance());
+		assertThat(mower.getOrientation()).isEqualTo(NorthDirection.getInstance());
 	}
 
 	@Test
 	public void should_be_oriented_east_when_oriented_south_and_accept_G() {
-		Mower mower = new Mower(new Position(0, 0), SouthOrientation.getInstance());
+		Mower mower = new Mower(new Position(0, 0), new Orientation(SouthDirection.getInstance()));
 		mower.accept("G");
-		assertThat(mower.getOrientation()).isEqualTo(EastOrientation.getInstance());
+		assertThat(mower.getOrientation()).isEqualTo(EastDirection.getInstance());
 	}
 
 	@Test
 	public void should_be_oriented_south_when_oriented_west_and_accept_G() {
-		Mower mower = new Mower(new Position(0, 0), WestOrientation.getInstance());
+		Mower mower = new Mower(new Position(0, 0), new Orientation(WestDirection.getInstance()));
 		mower.accept("G");
-		assertThat(mower.getOrientation()).isEqualTo(SouthOrientation.getInstance());
+		assertThat(mower.getOrientation()).isEqualTo(SouthDirection.getInstance());
 	}
 
 }

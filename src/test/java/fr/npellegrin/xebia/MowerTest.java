@@ -48,4 +48,11 @@ public class MowerTest {
 		assertThat(mower.getOrientation()).isEqualTo(WestOrientation.getInstance());
 	}
 
+	@Test
+	public void should_be_oriented_east_when_oriented_north_and_rotate_right() {
+		Mower mower = new Mower(new Position(0, 0), NorthOrientation.getInstance());
+		mower.accept("D");
+		assertThat(mower.getOrientation()).isEqualTo(EastOrientation.getInstance());
+	}
+
 }

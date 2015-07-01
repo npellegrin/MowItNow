@@ -1,5 +1,6 @@
 package fr.npellegrin.xebia;
 
+import fr.npellegrin.xebia.environment.EastOrientation;
 import fr.npellegrin.xebia.environment.Orientation;
 import fr.npellegrin.xebia.environment.Position;
 
@@ -19,7 +20,15 @@ public class Mower {
 		switch (instruction) {
 		case "A":
 			move();
+			break;
+		case "D":
+			rotateRight();
+			break;
 		}
+	}
+
+	private void rotateRight() {
+		orientation = EastOrientation.getInstance();
 	}
 
 	/**

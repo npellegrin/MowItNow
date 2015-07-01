@@ -1,4 +1,4 @@
-package fr.npellegrin.xebia.environment;
+package fr.npellegrin.xebia.mower.environment;
 
 /**
  * North orientation singleton.

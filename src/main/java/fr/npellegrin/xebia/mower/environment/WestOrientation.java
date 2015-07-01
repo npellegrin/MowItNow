@@ -1,19 +1,19 @@
-package fr.npellegrin.xebia.environment;
+package fr.npellegrin.xebia.mower.environment;
 
 /**
  * East orientation singleton.
  */
-public class EastOrientation implements Orientation {
-	private static EastOrientation instance;
+public class WestOrientation implements Orientation {
+	private static WestOrientation instance;
 	private Direction vector;
 
-	private EastOrientation() {
-		this.vector = new Direction(1, 0);
+	private WestOrientation() {
+		this.vector = new Direction(-1, 0);
 	}
 
 	public static Orientation getInstance() {
 		if (instance == null) {
-			instance = new EastOrientation();
+			instance = new WestOrientation();
 		}
 		return instance;
 	}

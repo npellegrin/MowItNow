@@ -1,14 +1,15 @@
-package fr.npellegrin.xebia;
+package fr.npellegrin.xebia.mower;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 
-import fr.npellegrin.xebia.environment.EastOrientation;
-import fr.npellegrin.xebia.environment.NorthOrientation;
-import fr.npellegrin.xebia.environment.Position;
-import fr.npellegrin.xebia.environment.SouthOrientation;
-import fr.npellegrin.xebia.environment.WestOrientation;
+import fr.npellegrin.xebia.mower.Mower;
+import fr.npellegrin.xebia.mower.environment.EastOrientation;
+import fr.npellegrin.xebia.mower.environment.NorthOrientation;
+import fr.npellegrin.xebia.mower.environment.Position;
+import fr.npellegrin.xebia.mower.environment.SouthOrientation;
+import fr.npellegrin.xebia.mower.environment.WestOrientation;
 
 public class MowerTest {
 

@@ -7,9 +7,6 @@ public class Mower {
 	private Orientation orientation;
 	private Position position;
 
-	public Mower() {
-	}
-
 	public Mower(Position position, Orientation orientation) {
 		this.position = position;
 		this.orientation = orientation;
@@ -25,20 +22,30 @@ public class Mower {
 		}
 	}
 
-	// FIXME: will became private
-	public void move() {
+	/**
+	 * Move mower forward (depends orientation).
+	 */
+	private void move() {
 		position.push(orientation);
 	}
 
-	// FIXME: will became private
-	public void rotate(Orientation orientation) {
+	/**
+	 * Rotate mower (change orientation).
+	 */
+	private void rotate(Orientation orientation) {
 		this.orientation = orientation;
 	}
 
+	/**
+	 * Orientation getter.
+	 */
 	public Orientation getOrientation() {
 		return orientation;
 	}
 
+	/**
+	 * Position getter.
+	 */
 	public Position getPosition() {
 		return position;
 	}

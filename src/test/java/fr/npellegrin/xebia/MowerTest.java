@@ -49,10 +49,31 @@ public class MowerTest {
 	}
 
 	@Test
-	public void should_be_oriented_east_when_oriented_north_and_rotate_right() {
+	public void should_be_oriented_east_when_oriented_north_and_accept_D() {
 		Mower mower = new Mower(new Position(0, 0), NorthOrientation.getInstance());
 		mower.accept("D");
 		assertThat(mower.getOrientation()).isEqualTo(EastOrientation.getInstance());
+	}
+
+	@Test
+	public void should_be_oriented_south_when_oriented_east_and_accept_D() {
+		Mower mower = new Mower(new Position(0, 0), EastOrientation.getInstance());
+		mower.accept("D");
+		assertThat(mower.getOrientation()).isEqualTo(SouthOrientation.getInstance());
+	}
+
+	@Test
+	public void should_be_oriented_west_when_oriented_south_and_accept_D() {
+		Mower mower = new Mower(new Position(0, 0), EastOrientation.getInstance());
+		mower.accept("D");
+		assertThat(mower.getOrientation()).isEqualTo(SouthOrientation.getInstance());
+	}
+
+	@Test
+	public void should_be_oriented_north_when_oriented_west_and_accept_D() {
+		Mower mower = new Mower(new Position(0, 0), EastOrientation.getInstance());
+		mower.accept("D");
+		assertThat(mower.getOrientation()).isEqualTo(SouthOrientation.getInstance());
 	}
 
 }

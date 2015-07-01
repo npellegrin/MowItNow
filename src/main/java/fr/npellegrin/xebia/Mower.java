@@ -1,8 +1,11 @@
 package fr.npellegrin.xebia;
 
 import fr.npellegrin.xebia.environment.EastOrientation;
+import fr.npellegrin.xebia.environment.NorthOrientation;
 import fr.npellegrin.xebia.environment.Orientation;
 import fr.npellegrin.xebia.environment.Position;
+import fr.npellegrin.xebia.environment.SouthOrientation;
+import fr.npellegrin.xebia.environment.WestOrientation;
 
 public class Mower {
 	private Orientation orientation;
@@ -28,7 +31,15 @@ public class Mower {
 	}
 
 	private void rotateRight() {
-		orientation = EastOrientation.getInstance();
+		if (NorthOrientation.getInstance().equals(orientation)) {
+			orientation = EastOrientation.getInstance();
+		} else if (EastOrientation.getInstance().equals(orientation)) {
+			orientation = SouthOrientation.getInstance();
+		} else if (SouthOrientation.getInstance().equals(orientation)) {
+			orientation = WestOrientation.getInstance();
+		} else if (WestOrientation.getInstance().equals(orientation)) {
+			orientation = NorthOrientation.getInstance();
+		}
 	}
 
 	/**

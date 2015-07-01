@@ -18,12 +18,12 @@ public class NorthDirection implements Direction {
 
 	@Override
 	public int getXVector() {
-		return 1;
+		return 0;
 	}
 
 	@Override
 	public int getYVector() {
-		return 0;
+		return 1;
 	}
 
 	@Override

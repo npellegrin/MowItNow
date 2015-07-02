@@ -30,10 +30,10 @@ public class MowerTest {
 	public void should_move_south_when_oriented_south_and_accept_A() {
 		InstructionFactory factory = new InstructionFactory();
 		Yard yard = new Yard(7, 5);
-		Mower mower = new Mower(yard, new Position(0, 0), new Orientation(SouthDirection.getInstance()));
+		Mower mower = new Mower(yard, new Position(3, 3), new Orientation(SouthDirection.getInstance()));
 		mower.accept(factory.buildFromString("A"));
-		assertThat(mower.getPosition().getX()).isEqualTo(0);
-		assertThat(mower.getPosition().getY()).isEqualTo(-1);
+		assertThat(mower.getPosition().getX()).isEqualTo(3);
+		assertThat(mower.getPosition().getY()).isEqualTo(2);
 		assertThat(mower.getOrientation().getXVector()).isEqualTo(0);
 		assertThat(mower.getOrientation().getYVector()).isEqualTo(-1);
 	}
@@ -54,10 +54,10 @@ public class MowerTest {
 	public void should_move_west_when_oriented_west_and_accept_A() {
 		InstructionFactory factory = new InstructionFactory();
 		Yard yard = new Yard(7, 5);
-		Mower mower = new Mower(yard, new Position(0, 0), new Orientation(WestDirection.getInstance()));
+		Mower mower = new Mower(yard, new Position(3, 3), new Orientation(WestDirection.getInstance()));
 		mower.accept(factory.buildFromString("A"));
-		assertThat(mower.getPosition().getX()).isEqualTo(-1);
-		assertThat(mower.getPosition().getY()).isEqualTo(0);
+		assertThat(mower.getPosition().getX()).isEqualTo(2);
+		assertThat(mower.getPosition().getY()).isEqualTo(3);
 		assertThat(mower.getOrientation().getXVector()).isEqualTo(-1);
 		assertThat(mower.getOrientation().getYVector()).isEqualTo(0);
 	}
@@ -182,10 +182,10 @@ public class MowerTest {
 	public void should_not_move_when_oriented_north_and_position_top_and_accept_A() {
 		InstructionFactory factory = new InstructionFactory();
 		Yard yard = new Yard(7, 5);
-		Mower mower = new Mower(yard, new Position(0, 5), new Orientation(SouthDirection.getInstance()));
+		Mower mower = new Mower(yard, new Position(0, 5), new Orientation(NorthDirection.getInstance()));
 		mower.accept(factory.buildFromString("A"));
-		assertThat(mower.getPosition().getX()).isEqualTo(6);
-		assertThat(mower.getPosition().getY()).isEqualTo(0);
+		assertThat(mower.getPosition().getX()).isEqualTo(0);
+		assertThat(mower.getPosition().getY()).isEqualTo(5);
 		assertThat(mower.getOrientation().getXVector()).isEqualTo(0);
 		assertThat(mower.getOrientation().getYVector()).isEqualTo(1);
 	}

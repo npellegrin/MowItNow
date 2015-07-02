@@ -40,7 +40,13 @@ public class Mower {
 	 * Move mower forward (depends orientation).
 	 */
 	public void move() {
-		position.push(orientation);
+		// Compute next position
+		Position nextPosition = position.tryPush(orientation);
+
+		// Set position if valid
+		if (yard.isIn(nextPosition)) {
+			position = nextPosition;
+		}
 	}
 
 	/**

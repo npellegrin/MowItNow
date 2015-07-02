@@ -1,5 +1,7 @@
 package fr.npellegrin.xebia.mower;
 
+import fr.npellegrin.xebia.mower.orientation.Position;
+
 /**
  * Yard description.
  */
@@ -12,4 +14,10 @@ public class Yard {
 		this.lastCoordY = lastCoordY;
 	}
 
+	public boolean isIn(Position position) {
+		return position.getX() >= 0
+			&& position.getY() >= 0
+			&& position.getX() <= lastCoordX
+			&& position.getY() <= lastCoordY;
+	}
 }

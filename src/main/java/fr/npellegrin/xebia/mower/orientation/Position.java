@@ -17,9 +17,11 @@ public class Position {
 		return y;
 	}
 
-	public void push(Orientation orientation) {
-		this.x += orientation.getXVector();
-		this.y += orientation.getYVector();
+	/**
+	 * Get next position when pushing object with a given orientation.
+	 */
+	public Position tryPush(Orientation orientation) {
+		return new Position(x + orientation.getXVector(), y + orientation.getYVector());
 	}
 
 }

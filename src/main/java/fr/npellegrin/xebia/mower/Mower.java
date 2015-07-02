@@ -5,10 +5,12 @@ import fr.npellegrin.xebia.mower.orientation.Orientation;
 import fr.npellegrin.xebia.mower.orientation.Position;
 
 public class Mower {
+	private Yard yard;
 	private Orientation orientation;
 	private Position position;
 
-	public Mower(Position position, Orientation orientation) {
+	public Mower(Yard yard, Position position, Orientation orientation) {
+		this.yard = yard;
 		this.position = position;
 		this.orientation = orientation;
 	}

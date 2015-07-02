@@ -5,10 +5,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
 
 import fr.npellegrin.xebia.mower.controls.InstructionFactory;
+import fr.npellegrin.xebia.mower.environment.Position;
+import fr.npellegrin.xebia.mower.environment.Yard;
 import fr.npellegrin.xebia.mower.orientation.EastDirection;
 import fr.npellegrin.xebia.mower.orientation.NorthDirection;
 import fr.npellegrin.xebia.mower.orientation.Orientation;
-import fr.npellegrin.xebia.mower.orientation.Position;
 import fr.npellegrin.xebia.mower.orientation.SouthDirection;
 import fr.npellegrin.xebia.mower.orientation.WestDirection;
 

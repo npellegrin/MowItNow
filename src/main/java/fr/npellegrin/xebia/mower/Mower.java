@@ -1,8 +1,9 @@
 package fr.npellegrin.xebia.mower;
 
 import fr.npellegrin.xebia.mower.controls.Instruction;
+import fr.npellegrin.xebia.mower.environment.Position;
+import fr.npellegrin.xebia.mower.environment.Yard;
 import fr.npellegrin.xebia.mower.orientation.Orientation;
-import fr.npellegrin.xebia.mower.orientation.Position;
 
 public class Mower {
 	private Yard yard;

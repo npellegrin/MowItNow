@@ -1,6 +1,4 @@
-package fr.npellegrin.xebia.mower;
-
-import fr.npellegrin.xebia.mower.orientation.Position;
+package fr.npellegrin.xebia.mower.environment;
 
 /**
  * Yard description.

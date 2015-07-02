@@ -1,4 +1,4 @@
-package fr.npellegrin.xebia.mower;
+package fr.npellegrin.xebia.mower.environment;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

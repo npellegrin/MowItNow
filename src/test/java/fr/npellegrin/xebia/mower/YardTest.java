@@ -3,11 +3,8 @@ package fr.npellegrin.xebia.mower;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
-import org.junit.Test;
 
 import fr.npellegrin.xebia.mower.environment.Position;
-import fr.npellegrin.xebia.mower.environment.Position;
-import fr.npellegrin.xebia.mower.environment.Yard;
 import fr.npellegrin.xebia.mower.environment.Yard;
 
 public class YardTest {

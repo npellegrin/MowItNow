@@ -2,6 +2,7 @@ package fr.npellegrin.xebia.mower.parser;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import org.junit.Test;
@@ -17,9 +18,9 @@ import fr.npellegrin.xebia.mower.parser.model.PositionDefinition;
 public class ParserTest {
 
 	@Test
-	public void should_parse_simple_file() {
+	public void should_parse_simple_file() throws FileNotFoundException {
 		Parser parser = new Parser();
-		parser.parse("simple_move.txt");
+		parser.parse("src/test/resources/simple_move.txt");
 		assertThat(parser.getYardDefinition().getLastCoordX()).isEqualTo(5);
 		assertThat(parser.getYardDefinition().getLastCoordY()).isEqualTo(7);
 		assertThat(parser.getMowerDefinitions()).hasSize(1);

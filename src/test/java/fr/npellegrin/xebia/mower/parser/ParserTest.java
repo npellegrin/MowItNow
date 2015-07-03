@@ -95,4 +95,50 @@ public class ParserTest {
 		assertThat(instructions3.get(0)).isEqualTo(InstructionDefinition.A);
 	}
 
+	@Test
+	public void should_parse_xebia_file() throws FileNotFoundException {
+		Parser parser = new Parser();
+		parser.parse("src/test/resources/xebia_move.txt");
+		// Init
+		assertThat(parser.getYardDefinition().getLastCoordX()).isEqualTo(5);
+		assertThat(parser.getYardDefinition().getLastCoordY()).isEqualTo(5);
+		assertThat(parser.getMowerDefinitions()).hasSize(2);
+
+		// Mower 0
+		MowerDefinition mowerDefinition0 = parser.getMowerDefinitions().get(0);
+		PositionDefinition initialPosition0 = mowerDefinition0.getInitialPosition();
+		assertThat(initialPosition0.getX()).isEqualTo(1);
+		assertThat(initialPosition0.getY()).isEqualTo(2);
+		assertThat(initialPosition0.getOrientation()).isEqualTo(OrientationDefinition.N);
+		List<InstructionDefinition> instructions0 = mowerDefinition0.getInstructionDefinitions();
+		assertThat(instructions0.size()).isEqualTo(9);
+		assertThat(instructions0.get(0)).isEqualTo(InstructionDefinition.G);
+		assertThat(instructions0.get(1)).isEqualTo(InstructionDefinition.A);
+		assertThat(instructions0.get(2)).isEqualTo(InstructionDefinition.G);
+		assertThat(instructions0.get(3)).isEqualTo(InstructionDefinition.A);
+		assertThat(instructions0.get(4)).isEqualTo(InstructionDefinition.G);
+		assertThat(instructions0.get(5)).isEqualTo(InstructionDefinition.A);
+		assertThat(instructions0.get(6)).isEqualTo(InstructionDefinition.G);
+		assertThat(instructions0.get(7)).isEqualTo(InstructionDefinition.A);
+		assertThat(instructions0.get(8)).isEqualTo(InstructionDefinition.A);
+
+		// Mower 1
+		MowerDefinition mowerDefinition1 = parser.getMowerDefinitions().get(1);
+		PositionDefinition initialPosition1 = mowerDefinition1.getInitialPosition();
+		assertThat(initialPosition1.getX()).isEqualTo(3);
+		assertThat(initialPosition1.getY()).isEqualTo(3);
+		assertThat(initialPosition1.getOrientation()).isEqualTo(OrientationDefinition.E);
+		List<InstructionDefinition> instructions1 = mowerDefinition1.getInstructionDefinitions();
+		assertThat(instructions1.size()).isEqualTo(10);
+		assertThat(instructions1.get(0)).isEqualTo(InstructionDefinition.A);
+		assertThat(instructions1.get(1)).isEqualTo(InstructionDefinition.A);
+		assertThat(instructions1.get(2)).isEqualTo(InstructionDefinition.D);
+		assertThat(instructions1.get(3)).isEqualTo(InstructionDefinition.A);
+		assertThat(instructions1.get(4)).isEqualTo(InstructionDefinition.A);
+		assertThat(instructions1.get(5)).isEqualTo(InstructionDefinition.D);
+		assertThat(instructions1.get(6)).isEqualTo(InstructionDefinition.A);
+		assertThat(instructions1.get(7)).isEqualTo(InstructionDefinition.D);
+		assertThat(instructions1.get(8)).isEqualTo(InstructionDefinition.D);
+		assertThat(instructions1.get(9)).isEqualTo(InstructionDefinition.A);
+	}
 }

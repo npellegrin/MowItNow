@@ -10,6 +10,7 @@ import org.junit.Test;
 import fr.npellegrin.xebia.mower.parser.model.InstructionDefinition;
 import fr.npellegrin.xebia.mower.parser.model.MowerDefinition;
 import fr.npellegrin.xebia.mower.parser.model.OrientationDefinition;
+import fr.npellegrin.xebia.mower.parser.model.ParserDefinition;
 import fr.npellegrin.xebia.mower.parser.model.PositionDefinition;
 
 /**
@@ -20,11 +21,11 @@ public class ParserTest {
 	@Test
 	public void should_parse_simple_file() throws FileNotFoundException {
 		Parser parser = new Parser();
-		parser.parse("src/test/resources/simple_move.txt");
-		assertThat(parser.getYardDefinition().getLastCoordX()).isEqualTo(5);
-		assertThat(parser.getYardDefinition().getLastCoordY()).isEqualTo(7);
-		assertThat(parser.getMowerDefinitions()).hasSize(1);
-		MowerDefinition mowerDefinition = parser.getMowerDefinitions().get(0);
+		ParserDefinition parserDefinition = parser.parse("src/test/resources/simple_move.txt");
+		assertThat(parserDefinition.getYardDefinition().getLastCoordX()).isEqualTo(5);
+		assertThat(parserDefinition.getYardDefinition().getLastCoordY()).isEqualTo(7);
+		assertThat(parserDefinition.getMowerDefinitions()).hasSize(1);
+		MowerDefinition mowerDefinition = parserDefinition.getMowerDefinitions().get(0);
 		PositionDefinition initialPosition = mowerDefinition.getInitialPosition();
 		assertThat(initialPosition.getX()).isEqualTo(1);
 		assertThat(initialPosition.getY()).isEqualTo(2);
@@ -39,14 +40,14 @@ public class ParserTest {
 	@Test
 	public void should_parse_complex_file() throws FileNotFoundException {
 		Parser parser = new Parser();
-		parser.parse("src/test/resources/complex_move.txt");
+		ParserDefinition parserDefinition = parser.parse("src/test/resources/complex_move.txt");
 		// Init
-		assertThat(parser.getYardDefinition().getLastCoordX()).isEqualTo(2);
-		assertThat(parser.getYardDefinition().getLastCoordY()).isEqualTo(10);
-		assertThat(parser.getMowerDefinitions()).hasSize(4);
+		assertThat(parserDefinition.getYardDefinition().getLastCoordX()).isEqualTo(2);
+		assertThat(parserDefinition.getYardDefinition().getLastCoordY()).isEqualTo(10);
+		assertThat(parserDefinition.getMowerDefinitions()).hasSize(4);
 
 		// Mower 0
-		MowerDefinition mowerDefinition0 = parser.getMowerDefinitions().get(0);
+		MowerDefinition mowerDefinition0 = parserDefinition.getMowerDefinitions().get(0);
 		PositionDefinition initialPosition0 = mowerDefinition0.getInitialPosition();
 		assertThat(initialPosition0.getX()).isEqualTo(1);
 		assertThat(initialPosition0.getY()).isEqualTo(1);
@@ -59,7 +60,7 @@ public class ParserTest {
 		assertThat(instructions0.get(15)).isEqualTo(InstructionDefinition.A);
 
 		// Mower 1
-		MowerDefinition mowerDefinition1 = parser.getMowerDefinitions().get(1);
+		MowerDefinition mowerDefinition1 = parserDefinition.getMowerDefinitions().get(1);
 		PositionDefinition initialPosition1 = mowerDefinition1.getInitialPosition();
 		assertThat(initialPosition1.getX()).isEqualTo(1);
 		assertThat(initialPosition1.getY()).isEqualTo(1);
@@ -72,7 +73,7 @@ public class ParserTest {
 		assertThat(instructions1.get(11)).isEqualTo(InstructionDefinition.D);
 
 		// Mower 2
-		MowerDefinition mowerDefinition2 = parser.getMowerDefinitions().get(2);
+		MowerDefinition mowerDefinition2 = parserDefinition.getMowerDefinitions().get(2);
 		PositionDefinition initialPosition2 = mowerDefinition2.getInitialPosition();
 		assertThat(initialPosition2.getX()).isEqualTo(1);
 		assertThat(initialPosition2.getY()).isEqualTo(1);
@@ -85,7 +86,7 @@ public class ParserTest {
 		assertThat(instructions2.get(14)).isEqualTo(InstructionDefinition.G);
 
 		// Mower 3
-		MowerDefinition mowerDefinition3 = parser.getMowerDefinitions().get(3);
+		MowerDefinition mowerDefinition3 = parserDefinition.getMowerDefinitions().get(3);
 		PositionDefinition initialPosition3 = mowerDefinition3.getInitialPosition();
 		assertThat(initialPosition3.getX()).isEqualTo(1);
 		assertThat(initialPosition3.getY()).isEqualTo(1);
@@ -98,14 +99,14 @@ public class ParserTest {
 	@Test
 	public void should_parse_xebia_file() throws FileNotFoundException {
 		Parser parser = new Parser();
-		parser.parse("src/test/resources/xebia_move.txt");
+		ParserDefinition parserDefinition = parser.parse("src/test/resources/xebia_move.txt");
 		// Init
-		assertThat(parser.getYardDefinition().getLastCoordX()).isEqualTo(5);
-		assertThat(parser.getYardDefinition().getLastCoordY()).isEqualTo(5);
-		assertThat(parser.getMowerDefinitions()).hasSize(2);
+		assertThat(parserDefinition.getYardDefinition().getLastCoordX()).isEqualTo(5);
+		assertThat(parserDefinition.getYardDefinition().getLastCoordY()).isEqualTo(5);
+		assertThat(parserDefinition.getMowerDefinitions()).hasSize(2);
 
 		// Mower 0
-		MowerDefinition mowerDefinition0 = parser.getMowerDefinitions().get(0);
+		MowerDefinition mowerDefinition0 = parserDefinition.getMowerDefinitions().get(0);
 		PositionDefinition initialPosition0 = mowerDefinition0.getInitialPosition();
 		assertThat(initialPosition0.getX()).isEqualTo(1);
 		assertThat(initialPosition0.getY()).isEqualTo(2);
@@ -123,7 +124,7 @@ public class ParserTest {
 		assertThat(instructions0.get(8)).isEqualTo(InstructionDefinition.A);
 
 		// Mower 1
-		MowerDefinition mowerDefinition1 = parser.getMowerDefinitions().get(1);
+		MowerDefinition mowerDefinition1 = parserDefinition.getMowerDefinitions().get(1);
 		PositionDefinition initialPosition1 = mowerDefinition1.getInitialPosition();
 		assertThat(initialPosition1.getX()).isEqualTo(3);
 		assertThat(initialPosition1.getY()).isEqualTo(3);

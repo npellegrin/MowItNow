@@ -10,6 +10,7 @@ import java.util.Scanner;
 import fr.npellegrin.xebia.mower.parser.model.InstructionDefinition;
 import fr.npellegrin.xebia.mower.parser.model.MowerDefinition;
 import fr.npellegrin.xebia.mower.parser.model.OrientationDefinition;
+import fr.npellegrin.xebia.mower.parser.model.ParserDefinition;
 import fr.npellegrin.xebia.mower.parser.model.PositionDefinition;
 import fr.npellegrin.xebia.mower.parser.model.YardDefinition;
 
@@ -17,25 +18,24 @@ import fr.npellegrin.xebia.mower.parser.model.YardDefinition;
  * Mower definition parser.
  */
 public class Parser {
-	private YardDefinition yardDefinition;
-	private List<MowerDefinition> mowerDefinitions;
-
 	/**
 	 * Parse a file and build a parser model definition.
 	 * 
 	 * @throws FileNotFoundException
 	 */
-	public void parse(String inputFile) throws FileNotFoundException {
+	public ParserDefinition parse(String inputFile) throws FileNotFoundException {
+		ParserDefinition result = new ParserDefinition();
 		Scanner scanner = new Scanner(new File(inputFile));
 		try {
 			// Yard definition
 			String[] yardLine = scanner.nextLine().split(" ");
-			yardDefinition = new YardDefinition();
+			YardDefinition yardDefinition = new YardDefinition();
 			yardDefinition.setLastCoordX(Integer.valueOf(yardLine[0]));
 			yardDefinition.setLastCoordY(Integer.valueOf(yardLine[1]));
+			result.setYardDefinition(yardDefinition);
 
 			// For each mower, build mower definition
-			mowerDefinitions = new ArrayList<MowerDefinition>();
+			List<MowerDefinition> mowerDefinitions = new ArrayList<MowerDefinition>();
 			Map<String, OrientationDefinition> orientationDefinitionMap = OrientationDefinition.orientationMap();
 			Map<String, InstructionDefinition> instructionDefinitionMap = InstructionDefinition.instructionMap();
 			while (scanner.hasNextLine()) {
@@ -59,18 +59,14 @@ public class Parser {
 				}
 				mowerDefinitions.add(mowerDefinition);
 			}
+			result.setMowerDefinitions(mowerDefinitions);
 		} finally {
 			// End
 			scanner.close();
 		}
-	}
 
-	public YardDefinition getYardDefinition() {
-		return yardDefinition;
-	}
-
-	public List<MowerDefinition> getMowerDefinitions() {
-		return mowerDefinitions;
+		// End
+		return result;
 	}
 
 }

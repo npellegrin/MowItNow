@@ -7,8 +7,7 @@ public class PositionDefinitionToPositionMapper implements Mapper<PositionDefini
 
 	@Override
 	public Position map(PositionDefinition input) {
-		// TODO
-		return null;
+		return new Position(input.getX(), input.getY());
 	}
 
 }

@@ -4,12 +4,18 @@ package fr.npellegrin.xebia.mower.environment;
  * Yard description.
  */
 public class Yard {
-	private int lastCoordX;
-	private int lastCoordY;
+	// Protected for test purpose
+	protected int lastCoordX;
+	protected int lastCoordY;
 
 	public Yard(int lastCoordX, int lastCoordY) {
 		this.lastCoordX = lastCoordX;
 		this.lastCoordY = lastCoordY;
+	}
+
+	protected Yard(Yard yard) {
+		this.lastCoordX = yard.lastCoordX;
+		this.lastCoordY = yard.lastCoordY;
 	}
 
 	public boolean isIn(Position position) {

@@ -46,8 +46,8 @@ public class PositionDefinitionToOrientationMapperTest {
 		input.setOrientation(OrientationDefinition.O);
 		PositionDefinitionToOrientationMapper mapper = new PositionDefinitionToOrientationMapper();
 		Orientation result = mapper.map(input);
-		assertThat(result.getXVector()).isEqualTo(0);
-		assertThat(result.getYVector()).isEqualTo(-1);
+		assertThat(result.getXVector()).isEqualTo(-1);
+		assertThat(result.getYVector()).isEqualTo(0);
 	}
 
 }

@@ -7,8 +7,7 @@ public class YardDefinitionToYardMapper implements Mapper<YardDefinition, Yard> 
 
 	@Override
 	public Yard map(YardDefinition input) {
-		// TODO Auto-generated method stub
-		return null;
+		return new Yard(input.getLastCoordX(), input.getLastCoordY());
 	}
 
 }

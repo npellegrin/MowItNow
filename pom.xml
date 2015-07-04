@@ -3,7 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fr.npellegrin.xebia</groupId>
 	<artifactId>mowitnow</artifactId>
-	<version>0.5.0-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<url>https://github.com/npellegrin/MowItNow</url>
+	<name>MowItNow</name>
+	<description>MowItNow kata from Xebia</description>
 
 	<scm>
 		<url>https://github.com/npellegrin/MowItNow.git</url>
@@ -26,6 +30,7 @@
 		</dependency>
 	</dependencies>
 
+	<!-- Build definitions -->
 	<build>
 		<plugins>
 			<plugin>
@@ -33,6 +38,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.2</version>
 				<configuration>
+					<!--  Java 7 -->
 					<source>1.7</source>
 					<target>1.7</target>
 					<sourceEncoding>UTF-8</sourceEncoding>

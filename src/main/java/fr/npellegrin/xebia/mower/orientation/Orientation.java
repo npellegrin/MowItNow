@@ -7,7 +7,8 @@ public class Orientation {
 	/**
 	 * Direction vector.
 	 */
-	private Direction direction;
+	// protected for test purposes
+	protected Direction direction;
 
 	/**
 	 * Instantiates an orientation with an initial direction.
@@ -17,11 +18,17 @@ public class Orientation {
 	}
 
 	/**
+	 * Instantiates an orientation form another.
+	 */
+	public Orientation(Orientation orientation) {
+		this.direction = orientation.direction;
+	}
+
+	/**
 	 * Rotate to left.
 	 */
 	public void rotateLeft() {
 		direction = direction.getLeft();
-
 	}
 
 	/**

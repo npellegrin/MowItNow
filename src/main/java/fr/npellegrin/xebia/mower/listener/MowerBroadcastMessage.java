@@ -3,6 +3,9 @@ package fr.npellegrin.xebia.mower.listener;
 import fr.npellegrin.xebia.mower.environment.Position;
 import fr.npellegrin.xebia.mower.orientation.Orientation;
 
+/**
+ * Mower broadcast message.
+ */
 public class MowerBroadcastMessage {
 	private Position position;
 	private Orientation orientation;

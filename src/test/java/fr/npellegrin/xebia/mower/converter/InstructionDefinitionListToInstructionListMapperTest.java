@@ -17,9 +17,10 @@ public class InstructionDefinitionListToInstructionListMapperTest {
 
 	@Test
 	public void should_map_parameters() {
-		InstructionDefinitionListToInstructionListMapper mapper = new InstructionDefinitionListToInstructionListMapper();
-		InstructionDefinition[] input = { InstructionDefinition.A, InstructionDefinition.G, InstructionDefinition.D };
-		List<Instruction> result = mapper.map(Arrays.asList(input));
+		final InstructionDefinitionListToInstructionListMapper mapper = new InstructionDefinitionListToInstructionListMapper();
+		final InstructionDefinition[] input = { InstructionDefinition.A, InstructionDefinition.G,
+				InstructionDefinition.D };
+		final List<Instruction> result = mapper.map(Arrays.asList(input));
 		assertThat(result).hasSize(3);
 		assertThat(result.get(0)).isInstanceOf(MoveForwardInstruction.class);
 		assertThat(result.get(1)).isInstanceOf(RotateLeftInstruction.class);

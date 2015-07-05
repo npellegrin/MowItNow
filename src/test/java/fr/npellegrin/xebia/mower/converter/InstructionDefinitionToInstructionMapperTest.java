@@ -13,7 +13,7 @@ public class InstructionDefinitionToInstructionMapperTest {
 
 	@Test
 	public void should_map_parameters() {
-		InstructionDefinitionToInstructionMapper mapper = new InstructionDefinitionToInstructionMapper();
+		final InstructionDefinitionToInstructionMapper mapper = new InstructionDefinitionToInstructionMapper();
 		assertThat(mapper.map(InstructionDefinition.A)).isInstanceOf(MoveForwardInstruction.class);
 		assertThat(mapper.map(InstructionDefinition.G)).isInstanceOf(RotateLeftInstruction.class);
 		assertThat(mapper.map(InstructionDefinition.D)).isInstanceOf(RotateRightInstruction.class);

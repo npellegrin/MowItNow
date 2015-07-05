@@ -11,14 +11,14 @@ import fr.npellegrin.xebia.mower.listener.MowerListener;
  */
 public class MowerTestListener implements MowerListener {
 	// list of received messages
-	private List<MowerBroadcastMessage> messageList = new ArrayList<MowerBroadcastMessage>();
+	private final List<MowerBroadcastMessage> messageList = new ArrayList<MowerBroadcastMessage>();
 
 	public List<MowerBroadcastMessage> getMessageList() {
 		return messageList;
 	}
 
 	@Override
-	public void messageReceived(MowerBroadcastMessage message) {
+	public void messageReceived(final MowerBroadcastMessage message) {
 		messageList.add(message);
 	}
 }

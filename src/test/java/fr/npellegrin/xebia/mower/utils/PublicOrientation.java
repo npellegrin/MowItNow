@@ -8,11 +8,11 @@ import fr.npellegrin.xebia.mower.orientation.Orientation;
  */
 public class PublicOrientation extends Orientation {
 
-	public PublicOrientation(Direction initialDirection) {
+	public PublicOrientation(final Direction initialDirection) {
 		super(initialDirection);
 	}
 
-	public PublicOrientation(Orientation orientation) {
+	public PublicOrientation(final Orientation orientation) {
 		super(orientation);
 	}
 

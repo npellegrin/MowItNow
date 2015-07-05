@@ -11,11 +11,11 @@ public class PositionDefinitionToPositionMapperTest {
 
 	@Test
 	public void should_map_parameters() {
-		PositionDefinition input = new PositionDefinition();
+		final PositionDefinition input = new PositionDefinition();
 		input.setX(13);
 		input.setY(23);
-		PositionDefinitionToPositionMapper mapper = new PositionDefinitionToPositionMapper();
-		Position result = mapper.map(input);
+		final PositionDefinitionToPositionMapper mapper = new PositionDefinitionToPositionMapper();
+		final Position result = mapper.map(input);
 		assertThat(result.getX()).isEqualTo(13);
 		assertThat(result.getY()).isEqualTo(23);
 	}

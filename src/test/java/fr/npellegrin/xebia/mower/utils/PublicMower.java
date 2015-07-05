@@ -9,7 +9,7 @@ import fr.npellegrin.xebia.mower.orientation.Orientation;
  */
 public class PublicMower extends Mower {
 
-	public PublicMower(Mower mower) {
+	public PublicMower(final Mower mower) {
 		super(mower);
 	}
 

@@ -10,11 +10,11 @@ import fr.npellegrin.xebia.mower.parser.model.YardDefinition;
 public class YardDefinitionToYardMapperTest {
 	@Test
 	public void should_map_parameters() {
-		YardDefinition input = new YardDefinition();
+		final YardDefinition input = new YardDefinition();
 		input.setLastCoordX(31);
 		input.setLastCoordY(17);
-		YardDefinitionToYardMapper mapper = new YardDefinitionToYardMapper();
-		PublicYard result = new PublicYard(mapper.map(input));
+		final YardDefinitionToYardMapper mapper = new YardDefinitionToYardMapper();
+		final PublicYard result = new PublicYard(mapper.map(input));
 		assertThat(result.getLastCoordX()).isEqualTo(31);
 		assertThat(result.getLastCoordY()).isEqualTo(17);
 	}
@@ -23,11 +23,11 @@ public class YardDefinitionToYardMapperTest {
 	 * Yard subclass to get private attributes.
 	 */
 	class PublicYard extends Yard {
-		public PublicYard(Yard yard) {
+		public PublicYard(final Yard yard) {
 			super(yard);
 		}
 
-		public PublicYard(int lastCoordX, int lastCoordY) {
+		public PublicYard(final int lastCoordX, final int lastCoordY) {
 			super(lastCoordX, lastCoordY);
 		}
 

@@ -23,23 +23,23 @@ public class TestChain {
 	@Test
 	public void should_run_xebia_file() throws FileNotFoundException, ParserException {
 		// Init & run
-		Parser parser = new Parser();
-		ParserDefinition parserDefinition = parser.parse("src/test/resources/xebia_move.txt");
-		MowerRunner runner = new MowerRunner();
-		MowerTestListener listener = new MowerTestListener();
+		final Parser parser = new Parser();
+		final ParserDefinition parserDefinition = parser.parse("src/test/resources/xebia_move.txt");
+		final MowerRunner runner = new MowerRunner();
+		final MowerTestListener listener = new MowerTestListener();
 		runner.addMowerListener(listener);
 		runner.execute(parserDefinition);
 
 		// Mower 0
 		assertThat(listener.getMessageList().get(0).getPosition().getX()).isEqualTo(1);
 		assertThat(listener.getMessageList().get(0).getPosition().getY()).isEqualTo(3);
-		PublicOrientation orientation0 = new PublicOrientation(listener.getMessageList().get(0).getOrientation());
+		final PublicOrientation orientation0 = new PublicOrientation(listener.getMessageList().get(0).getOrientation());
 		assertThat(orientation0.getDirection()).isEqualTo(NorthDirection.getInstance());
 
 		// Mower 1
 		assertThat(listener.getMessageList().get(1).getPosition().getX()).isEqualTo(5);
 		assertThat(listener.getMessageList().get(1).getPosition().getY()).isEqualTo(1);
-		PublicOrientation orientation1 = new PublicOrientation(listener.getMessageList().get(1).getOrientation());
+		final PublicOrientation orientation1 = new PublicOrientation(listener.getMessageList().get(1).getOrientation());
 		assertThat(orientation1.getDirection()).isEqualTo(EastDirection.getInstance());
 	}
 }

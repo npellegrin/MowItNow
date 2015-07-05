@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import fr.npellegrin.xebia.mower.exceptions.ParserException;
 import fr.npellegrin.xebia.mower.parser.model.InstructionDefinition;
 import fr.npellegrin.xebia.mower.parser.model.MowerDefinition;
 import fr.npellegrin.xebia.mower.parser.model.OrientationDefinition;
@@ -19,7 +20,7 @@ import fr.npellegrin.xebia.mower.parser.model.PositionDefinition;
 public class ParserTest {
 
 	@Test
-	public void should_parse_simple_file() throws FileNotFoundException {
+	public void should_parse_simple_file() throws FileNotFoundException, ParserException {
 		Parser parser = new Parser();
 		ParserDefinition parserDefinition = parser.parse("src/test/resources/simple_move.txt");
 		assertThat(parserDefinition.getYardDefinition().getLastCoordX()).isEqualTo(5);
@@ -38,7 +39,7 @@ public class ParserTest {
 	}
 
 	@Test
-	public void should_parse_complex_file() throws FileNotFoundException {
+	public void should_parse_complex_file() throws FileNotFoundException, ParserException {
 		Parser parser = new Parser();
 		ParserDefinition parserDefinition = parser.parse("src/test/resources/complex_move.txt");
 		// Init
@@ -97,7 +98,7 @@ public class ParserTest {
 	}
 
 	@Test
-	public void should_parse_xebia_file() throws FileNotFoundException {
+	public void should_parse_xebia_file() throws FileNotFoundException, ParserException {
 		Parser parser = new Parser();
 		ParserDefinition parserDefinition = parser.parse("src/test/resources/xebia_move.txt");
 		// Init

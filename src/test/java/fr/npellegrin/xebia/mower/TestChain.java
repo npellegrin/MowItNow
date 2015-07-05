@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 
 import org.junit.Test;
 
+import fr.npellegrin.xebia.mower.exceptions.ParserException;
 import fr.npellegrin.xebia.mower.orientation.EastDirection;
 import fr.npellegrin.xebia.mower.orientation.NorthDirection;
 import fr.npellegrin.xebia.mower.parser.Parser;
@@ -20,7 +21,7 @@ import fr.npellegrin.xebia.mower.utils.PublicOrientation;
 public class TestChain {
 
 	@Test
-	public void should_run_xebia_file() throws FileNotFoundException {
+	public void should_run_xebia_file() throws FileNotFoundException, ParserException {
 		// Init & run
 		Parser parser = new Parser();
 		ParserDefinition parserDefinition = parser.parse("src/test/resources/xebia_move.txt");

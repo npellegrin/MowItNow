@@ -7,21 +7,20 @@ public interface Direction {
 	/**
 	 * Get force on X axis.
 	 */
-	public int getXVector();
+	int getXVector();
 
 	/**
 	 * Get force on Y axis.
 	 */
-	public int getYVector();
+	int getYVector();
 
 	/**
 	 * Get the direction at the left.
 	 */
-	public Direction getLeft();
+	Direction getLeft();
 
 	/**
 	 * Get the direction at the right.
 	 */
-	public Direction getRight();
-
+	Direction getRight();
 }

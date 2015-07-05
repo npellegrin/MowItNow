@@ -11,8 +11,8 @@ public class InvalidInstructionException extends IllegalArgumentException {
 		super(message, cause);
 	}
 
-	public InvalidInstructionException(final String s) {
-		super(s);
+	public InvalidInstructionException(final String message) {
+		super(message);
 	}
 
 	public InvalidInstructionException(final Throwable cause) {

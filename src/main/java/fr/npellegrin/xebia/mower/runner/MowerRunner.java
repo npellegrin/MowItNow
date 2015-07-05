@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.npellegrin.xebia.mower.Mower;
+import fr.npellegrin.xebia.mower.controls.Instruction;
 import fr.npellegrin.xebia.mower.converter.InstructionDefinitionToInstructionMapper;
 import fr.npellegrin.xebia.mower.converter.PositionDefinitionToOrientationMapper;
 import fr.npellegrin.xebia.mower.converter.PositionDefinitionToPositionMapper;
 import fr.npellegrin.xebia.mower.converter.YardDefinitionToYardMapper;
 import fr.npellegrin.xebia.mower.environment.Position;
 import fr.npellegrin.xebia.mower.environment.Yard;
-import fr.npellegrin.xebia.mower.listener.MowerBroadcastMessage;
 import fr.npellegrin.xebia.mower.listener.MowerListener;
 import fr.npellegrin.xebia.mower.orientation.Orientation;
 import fr.npellegrin.xebia.mower.parser.model.InstructionDefinition;
@@ -42,31 +42,21 @@ public class MowerRunner {
 
 			// Current mower
 			Mower mower = new Mower(yard, initialPosition, initialOrientation);
+			mower.addMowerListeners(listeners);
 
-			// Execute each instruction
+			// FIXME: to move in a "InstructionListMapper"
+			List<Instruction> instructionList = new ArrayList<Instruction>();
 			for (InstructionDefinition instruction : mowerDefinition.getInstructionDefinitions()) {
-				mower.accept(instructionMapper.map(instruction));
+				instructionList.add(instructionMapper.map(instruction));
 			}
 
-			// Notify listeners of final position
-			this.broadcastPosition(mower);
+			// Execute all instructions
+			// (mowers will broadcast the final position after move).
+			mower.accept(instructionList);
 		}
 	}
 
 	public void addMowerListener(MowerListener listener) {
 		listeners.add(listener);
-	}
-
-	private void broadcastPosition(Mower mower) {
-		MowerBroadcastMessage message = new MowerBroadcastMessage();
-		message.setOrientation(mower.getOrientation());
-		message.setPosition(mower.getPosition());
-		notifyListeners(message);
-	}
-
-	private void notifyListeners(MowerBroadcastMessage message) {
-		for (MowerListener listener : listeners) {
-			listener.messageReceived(message);
-		}
 	}
 }

@@ -4,15 +4,9 @@ package fr.npellegrin.xebia.mower.orientation;
  * East orientation singleton.
  */
 public final class EastDirection implements Direction {
-	private static Direction instance;
-
-	private EastDirection() {
-	}
+	private static Direction instance = new EastDirection();
 
 	public static Direction getInstance() {
-		if (instance == null) {
-			instance = new EastDirection();
-		}
 		return instance;
 	}
 

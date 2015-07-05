@@ -4,15 +4,9 @@ package fr.npellegrin.xebia.mower.orientation;
  * South orientation singleton.
  */
 public final class SouthDirection implements Direction {
-	private static Direction instance;
-
-	private SouthDirection() {
-	}
+	private static Direction instance = new SouthDirection();
 
 	public static Direction getInstance() {
-		if (instance == null) {
-			instance = new SouthDirection();
-		}
 		return instance;
 	}
 

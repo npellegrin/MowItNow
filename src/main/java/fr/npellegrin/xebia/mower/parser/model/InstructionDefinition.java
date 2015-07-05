@@ -26,8 +26,4 @@ public enum InstructionDefinition {
 		return result;
 	}
 
-	public String getValue() {
-		return value;
-	}
-
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.npellegrin.xebia.mower.Mower;
-import fr.npellegrin.xebia.mower.controls.InstructionFactory;
+import fr.npellegrin.xebia.mower.converter.InstructionDefinitionToInstructionMapper;
 import fr.npellegrin.xebia.mower.converter.PositionDefinitionToOrientationMapper;
 import fr.npellegrin.xebia.mower.converter.PositionDefinitionToPositionMapper;
 import fr.npellegrin.xebia.mower.converter.YardDefinitionToYardMapper;
@@ -29,9 +29,7 @@ public class MowerRunner {
 		YardDefinitionToYardMapper yardMapper = new YardDefinitionToYardMapper();
 		PositionDefinitionToOrientationMapper orientationMapper = new PositionDefinitionToOrientationMapper();
 		PositionDefinitionToPositionMapper positionMapper = new PositionDefinitionToPositionMapper();
-
-		// Factory
-		InstructionFactory instructionFactory = new InstructionFactory();
+		InstructionDefinitionToInstructionMapper instructionMapper = new InstructionDefinitionToInstructionMapper();
 
 		// Current yard
 		Yard yard = yardMapper.map(definition.getYardDefinition());
@@ -47,8 +45,7 @@ public class MowerRunner {
 
 			// Execute each instruction
 			for (InstructionDefinition instruction : mowerDefinition.getInstructionDefinitions()) {
-				// FIXME: use a mapper from parser definition
-				mower.accept(instructionFactory.buildFromString(instruction.getValue()));
+				mower.accept(instructionMapper.map(instruction));
 			}
 
 			// Notify listeners of final position

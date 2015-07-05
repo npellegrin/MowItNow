@@ -2,6 +2,9 @@ package fr.npellegrin.xebia.mower.environment;
 
 import fr.npellegrin.xebia.mower.orientation.Orientation;
 
+/**
+ * Represents the mower position.
+ */
 public class Position {
 	private final int x;
 	private final int y;

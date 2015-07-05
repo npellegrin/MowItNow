@@ -1,5 +1,8 @@
 package fr.npellegrin.xebia.mower.orientation;
 
+/**
+ * Represents the mower direction.
+ */
 public interface Direction {
 	/**
 	 * Get force on X axis.

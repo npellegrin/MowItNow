@@ -5,8 +5,8 @@ package fr.npellegrin.xebia.mower.environment;
  */
 public class Yard {
 	// Protected for test purpose
-	protected int lastCoordX;
-	protected int lastCoordY;
+	protected final int lastCoordX;
+	protected final int lastCoordY;
 
 	public Yard(final int lastCoordX, final int lastCoordY) {
 		this.lastCoordX = lastCoordX;
@@ -19,7 +19,9 @@ public class Yard {
 	}
 
 	public boolean isIn(final Position position) {
-		return position.getX() >= 0 && position.getY() >= 0 && position.getX() <= lastCoordX
-				&& position.getY() <= lastCoordY;
+		return position.getX() >= 0 &&
+				position.getY() >= 0 &&
+				position.getX() <= lastCoordX &&
+				position.getY() <= lastCoordY;
 	}
 }

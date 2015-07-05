@@ -2,16 +2,10 @@ package fr.npellegrin.xebia.mower.runner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import org.junit.Test;
 
-import fr.npellegrin.xebia.mower.listener.MowerBroadcastMessage;
-import fr.npellegrin.xebia.mower.listener.MowerListener;
-import fr.npellegrin.xebia.mower.orientation.Direction;
-import fr.npellegrin.xebia.mower.orientation.Orientation;
 import fr.npellegrin.xebia.mower.orientation.SouthDirection;
 import fr.npellegrin.xebia.mower.parser.model.InstructionDefinition;
 import fr.npellegrin.xebia.mower.parser.model.MowerDefinition;
@@ -19,6 +13,8 @@ import fr.npellegrin.xebia.mower.parser.model.OrientationDefinition;
 import fr.npellegrin.xebia.mower.parser.model.ParserDefinition;
 import fr.npellegrin.xebia.mower.parser.model.PositionDefinition;
 import fr.npellegrin.xebia.mower.parser.model.YardDefinition;
+import fr.npellegrin.xebia.mower.utils.MowerTestListener;
+import fr.npellegrin.xebia.mower.utils.PublicOrientation;
 
 public class MowerRunnerTest {
 
@@ -52,40 +48,5 @@ public class MowerRunnerTest {
 		assertThat(listener.getMessageList().get(0).getPosition().getY()).isEqualTo(4);
 		PublicOrientation orientation = new PublicOrientation(listener.getMessageList().get(0).getOrientation());
 		assertThat(orientation.getDirection()).isEqualTo(SouthDirection.getInstance());
-	}
-
-	/**
-	 * Test class to increase visibility of direction.
-	 */
-	class PublicOrientation extends Orientation {
-
-		public PublicOrientation(Direction initialDirection) {
-			super(initialDirection);
-		}
-
-		public PublicOrientation(Orientation orientation) {
-			super(orientation);
-		}
-
-		public Direction getDirection() {
-			return direction;
-		}
-	}
-
-	/**
-	 * Test listener to retrieve mower positions.
-	 */
-	class MowerTestListener implements MowerListener {
-		// list of received messages
-		private List<MowerBroadcastMessage> messageList = new ArrayList<MowerBroadcastMessage>();
-
-		public List<MowerBroadcastMessage> getMessageList() {
-			return messageList;
-		}
-
-		@Override
-		public void messageReceived(MowerBroadcastMessage message) {
-			messageList.add(message);
-		}
 	}
 }

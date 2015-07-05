@@ -1,5 +1,6 @@
 package fr.npellegrin.xebia.mower.converter;
 
+import fr.npellegrin.xebia.mower.exceptions.InvalidOrientationException;
 import fr.npellegrin.xebia.mower.orientation.Direction;
 import fr.npellegrin.xebia.mower.orientation.EastDirection;
 import fr.npellegrin.xebia.mower.orientation.NorthDirection;
@@ -21,7 +22,7 @@ public class OrientationDefinitionToDirectionMapper implements Mapper<Orientatio
 		case S:
 			return SouthDirection.getInstance();
 		default:
-			return null;
+			throw new InvalidOrientationException(String.format("Direction %s is invalid", input));
 		}
 	}
 

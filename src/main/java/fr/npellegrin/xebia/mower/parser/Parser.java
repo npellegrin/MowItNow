@@ -28,10 +28,10 @@ public class Parser {
 		final Scanner scanner = new Scanner(new File(inputFile));
 		try {
 			// Yard definition
-			final String[] yardLine = scanner.nextLine().split(" ");
+			final String[] yardTokens = this.tokenize(scanner.nextLine());
 			final YardDefinition yardDefinition = new YardDefinition();
-			yardDefinition.setLastCoordX(Integer.valueOf(yardLine[0]));
-			yardDefinition.setLastCoordY(Integer.valueOf(yardLine[1]));
+			yardDefinition.setLastCoordX(Integer.valueOf(yardTokens[0]));
+			yardDefinition.setLastCoordY(Integer.valueOf(yardTokens[1]));
 			result.setYardDefinition(yardDefinition);
 
 			// For each mower, build mower definition
@@ -43,11 +43,11 @@ public class Parser {
 				final MowerDefinition mowerDefinition = new MowerDefinition();
 
 				// Initial mower definition
-				final String[] positionLine = scanner.nextLine().split(" ");
+				final String[] positionTokens = this.tokenize(scanner.nextLine());
 				final PositionDefinition positionDefinition = new PositionDefinition();
-				positionDefinition.setX(Integer.valueOf(positionLine[0]));
-				positionDefinition.setY(Integer.valueOf(positionLine[1]));
-				positionDefinition.setOrientation(orientationDefinitionMap.get(positionLine[2]));
+				positionDefinition.setX(Integer.valueOf(positionTokens[0]));
+				positionDefinition.setY(Integer.valueOf(positionTokens[1]));
+				positionDefinition.setOrientation(orientationDefinitionMap.get(positionTokens[2]));
 				mowerDefinition.setInitialPosition(positionDefinition);
 
 				// Mower instructions
@@ -67,6 +67,16 @@ public class Parser {
 
 		// End
 		return result;
+	}
+
+	/**
+	 * Split line into an array of tokens.
+	 */
+	private String[] tokenize(final String line) {
+		if (line != null) {
+			return line.split(" ");
+		}
+		return new String[0];
 	}
 
 }

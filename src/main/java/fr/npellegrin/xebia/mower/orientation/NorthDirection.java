@@ -3,7 +3,7 @@ package fr.npellegrin.xebia.mower.orientation;
 /**
  * North direction singleton.
  */
-public class NorthDirection implements Direction {
+public final class NorthDirection implements Direction {
 	private static Direction instance;
 
 	private NorthDirection() {

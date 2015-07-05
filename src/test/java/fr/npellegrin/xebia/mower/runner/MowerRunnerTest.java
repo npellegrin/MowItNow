@@ -3,6 +3,7 @@ package fr.npellegrin.xebia.mower.runner;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
@@ -10,8 +11,8 @@ import org.junit.Test;
 import fr.npellegrin.xebia.mower.listener.MowerBroadcastMessage;
 import fr.npellegrin.xebia.mower.listener.MowerListener;
 import fr.npellegrin.xebia.mower.orientation.Direction;
-import fr.npellegrin.xebia.mower.orientation.EastDirection;
 import fr.npellegrin.xebia.mower.orientation.Orientation;
+import fr.npellegrin.xebia.mower.orientation.SouthDirection;
 import fr.npellegrin.xebia.mower.parser.model.InstructionDefinition;
 import fr.npellegrin.xebia.mower.parser.model.MowerDefinition;
 import fr.npellegrin.xebia.mower.parser.model.OrientationDefinition;
@@ -37,6 +38,7 @@ public class MowerRunnerTest {
 		mowerDefinition.addInstructionDefinition(InstructionDefinition.D);
 		mowerDefinition.addInstructionDefinition(InstructionDefinition.A);
 		mowerDefinition.addInstructionDefinition(InstructionDefinition.D);
+		result.setMowerDefinitions(Arrays.asList(new MowerDefinition[] { mowerDefinition }));
 		return result;
 	}
 
@@ -49,7 +51,7 @@ public class MowerRunnerTest {
 		assertThat(listener.getMessageList().get(0).getPosition().getX()).isEqualTo(2);
 		assertThat(listener.getMessageList().get(0).getPosition().getY()).isEqualTo(4);
 		PublicOrientation orientation = new PublicOrientation(listener.getMessageList().get(0).getOrientation());
-		assertThat(orientation.getDirection()).isEqualTo(EastDirection.getInstance());
+		assertThat(orientation.getDirection()).isEqualTo(SouthDirection.getInstance());
 	}
 
 	/**

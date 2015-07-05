@@ -11,7 +11,7 @@ public class MowerBroadcastMessage {
 		return position;
 	}
 
-	public void setPosition(Position position) {
+	public void setPosition(final Position position) {
 		this.position = position;
 	}
 
@@ -19,7 +19,7 @@ public class MowerBroadcastMessage {
 		return orientation;
 	}
 
-	public void setOrientation(Orientation orientation) {
+	public void setOrientation(final Orientation orientation) {
 		this.orientation = orientation;
 	}
 

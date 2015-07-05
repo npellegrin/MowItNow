@@ -5,7 +5,7 @@ import java.util.List;
 
 public class MowerDefinition {
 	private PositionDefinition initialPosition;
-	private List<InstructionDefinition> instructionDefinitions;
+	private final List<InstructionDefinition> instructionDefinitions;
 
 	public MowerDefinition() {
 		instructionDefinitions = new ArrayList<InstructionDefinition>();
@@ -15,7 +15,7 @@ public class MowerDefinition {
 		return initialPosition;
 	}
 
-	public void setInitialPosition(PositionDefinition initialPosition) {
+	public void setInitialPosition(final PositionDefinition initialPosition) {
 		this.initialPosition = initialPosition;
 	}
 
@@ -23,7 +23,7 @@ public class MowerDefinition {
 		return instructionDefinitions;
 	}
 
-	public void addInstructionDefinition(InstructionDefinition instruction) {
+	public void addInstructionDefinition(final InstructionDefinition instruction) {
 		instructionDefinitions.add(instruction);
 	}
 }

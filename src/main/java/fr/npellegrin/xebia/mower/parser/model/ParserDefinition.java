@@ -10,7 +10,7 @@ public class ParserDefinition {
 		return yardDefinition;
 	}
 
-	public void setYardDefinition(YardDefinition yardDefinition) {
+	public void setYardDefinition(final YardDefinition yardDefinition) {
 		this.yardDefinition = yardDefinition;
 	}
 
@@ -18,7 +18,7 @@ public class ParserDefinition {
 		return mowerDefinitions;
 	}
 
-	public void setMowerDefinitions(List<MowerDefinition> mowerDefinitions) {
+	public void setMowerDefinitions(final List<MowerDefinition> mowerDefinitions) {
 		this.mowerDefinitions = mowerDefinitions;
 	}
 

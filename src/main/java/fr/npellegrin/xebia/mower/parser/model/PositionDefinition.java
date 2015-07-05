@@ -12,7 +12,7 @@ public class PositionDefinition {
 		return x;
 	}
 
-	public void setX(int x) {
+	public void setX(final int x) {
 		this.x = x;
 	}
 
@@ -20,7 +20,7 @@ public class PositionDefinition {
 		return y;
 	}
 
-	public void setY(int y) {
+	public void setY(final int y) {
 		this.y = y;
 	}
 
@@ -28,7 +28,7 @@ public class PositionDefinition {
 		return orientation;
 	}
 
-	public void setOrientation(OrientationDefinition orientation) {
+	public void setOrientation(final OrientationDefinition orientation) {
 		this.orientation = orientation;
 	}
 

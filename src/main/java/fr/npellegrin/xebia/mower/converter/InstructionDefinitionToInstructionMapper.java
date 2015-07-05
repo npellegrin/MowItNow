@@ -10,7 +10,7 @@ import fr.npellegrin.xebia.mower.parser.model.InstructionDefinition;
 public class InstructionDefinitionToInstructionMapper implements Mapper<InstructionDefinition, Instruction> {
 
 	@Override
-	public Instruction map(InstructionDefinition input) {
+	public Instruction map(final InstructionDefinition input) {
 		switch (input) {
 		case A:
 			return new MoveForwardInstruction();

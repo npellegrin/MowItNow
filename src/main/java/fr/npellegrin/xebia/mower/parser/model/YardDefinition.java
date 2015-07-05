@@ -8,7 +8,7 @@ public class YardDefinition {
 		return lastCoordX;
 	}
 
-	public void setLastCoordX(int lastCoordX) {
+	public void setLastCoordX(final int lastCoordX) {
 		this.lastCoordX = lastCoordX;
 	}
 
@@ -16,7 +16,7 @@ public class YardDefinition {
 		return lastCoordY;
 	}
 
-	public void setLastCoordY(int lastCoordY) {
+	public void setLastCoordY(final int lastCoordY) {
 		this.lastCoordY = lastCoordY;
 	}
 

@@ -7,15 +7,15 @@ public class InvalidOrientationException extends IllegalArgumentException {
 		super();
 	}
 
-	public InvalidOrientationException(String message, Throwable cause) {
+	public InvalidOrientationException(final String message, final Throwable cause) {
 		super(message, cause);
 	}
 
-	public InvalidOrientationException(String s) {
+	public InvalidOrientationException(final String s) {
 		super(s);
 	}
 
-	public InvalidOrientationException(Throwable cause) {
+	public InvalidOrientationException(final Throwable cause) {
 		super(cause);
 	}
 

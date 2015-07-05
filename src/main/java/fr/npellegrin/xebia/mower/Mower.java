@@ -11,14 +11,14 @@ import fr.npellegrin.xebia.mower.listener.MowerListener;
 import fr.npellegrin.xebia.mower.orientation.Orientation;
 
 public class Mower {
-	private Yard yard;
+	private final Yard yard;
 	// Protected for tests purposes
 	protected Position position;
 	// Protected for tests purposes
 	protected Orientation orientation;
 	private final List<MowerListener> listeners;
 
-	public Mower(Yard yard, Position position, Orientation orientation) {
+	public Mower(final Yard yard, final Position position, final Orientation orientation) {
 		this.yard = yard;
 		this.position = position;
 		this.orientation = orientation;
@@ -28,7 +28,7 @@ public class Mower {
 	/**
 	 * Constructor for test purposes.
 	 */
-	protected Mower(Mower mower) {
+	protected Mower(final Mower mower) {
 		this.yard = mower.yard;
 		this.position = mower.position;
 		this.orientation = mower.orientation;
@@ -38,9 +38,9 @@ public class Mower {
 	/**
 	 * Move mower according a list of instructions.
 	 */
-	public void accept(List<Instruction> instructionList) {
+	public void accept(final List<Instruction> instructionList) {
 		// Execute all instructions
-		for (Instruction instruction : instructionList) {
+		for (final Instruction instruction : instructionList) {
 			instruction.applyOn(this);
 		}
 		// Notify final position
@@ -66,7 +66,7 @@ public class Mower {
 	 */
 	public void move() {
 		// Compute next position
-		Position nextPosition = position.tryPush(orientation);
+		final Position nextPosition = position.tryPush(orientation);
 
 		// Set position if valid
 		if (yard.isIn(nextPosition)) {
@@ -77,14 +77,14 @@ public class Mower {
 	/**
 	 * Add a listener to mower (will receive final position).
 	 */
-	public void addMowerListener(MowerListener listener) {
+	public void addMowerListener(final MowerListener listener) {
 		listeners.add(listener);
 	}
 
 	/**
 	 * Add a list of listeners to mower.
 	 */
-	public void addMowerListeners(List<MowerListener> listenerList) {
+	public void addMowerListeners(final List<MowerListener> listenerList) {
 		listeners.addAll(listenerList);
 	}
 
@@ -92,7 +92,7 @@ public class Mower {
 	 * Send the position to ass listeners.
 	 */
 	private void broadcastPosition() {
-		MowerBroadcastMessage message = new MowerBroadcastMessage();
+		final MowerBroadcastMessage message = new MowerBroadcastMessage();
 		message.setOrientation(orientation);
 		message.setPosition(position);
 		notifyListeners(message);
@@ -101,8 +101,8 @@ public class Mower {
 	/**
 	 * Notify all listeners with a message.
 	 */
-	private void notifyListeners(MowerBroadcastMessage message) {
-		for (MowerListener listener : listeners) {
+	private void notifyListeners(final MowerBroadcastMessage message) {
+		for (final MowerListener listener : listeners) {
 			listener.messageReceived(message);
 		}
 	}

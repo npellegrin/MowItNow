@@ -11,7 +11,7 @@ public enum InstructionDefinition {
 
 	private String value;
 
-	private InstructionDefinition(String value) {
+	private InstructionDefinition(final String value) {
 		this.value = value;
 	}
 
@@ -19,8 +19,8 @@ public enum InstructionDefinition {
 	 * Map of String representation -> instruction.
 	 */
 	public static Map<String, InstructionDefinition> instructionMap() {
-		Map<String, InstructionDefinition> result = new HashMap<String, InstructionDefinition>();
-		for (InstructionDefinition instruction : InstructionDefinition.values()) {
+		final Map<String, InstructionDefinition> result = new HashMap<String, InstructionDefinition>();
+		for (final InstructionDefinition instruction : InstructionDefinition.values()) {
 			result.put(instruction.value, instruction);
 		}
 		return result;

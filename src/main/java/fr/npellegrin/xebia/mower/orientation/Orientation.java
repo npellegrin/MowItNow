@@ -13,14 +13,14 @@ public class Orientation {
 	/**
 	 * Instantiates an orientation with an initial direction.
 	 */
-	public Orientation(Direction initialDirection) {
+	public Orientation(final Direction initialDirection) {
 		this.direction = initialDirection;
 	}
 
 	/**
 	 * Instantiates an orientation form another.
 	 */
-	public Orientation(Orientation orientation) {
+	public Orientation(final Orientation orientation) {
 		this.direction = orientation.direction;
 	}
 

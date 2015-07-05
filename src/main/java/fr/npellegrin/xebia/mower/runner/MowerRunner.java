@@ -22,24 +22,24 @@ public class MowerRunner {
 		listeners = new ArrayList<MowerListener>();
 	}
 
-	public void execute(ParserDefinition definition) {
+	public void execute(final ParserDefinition definition) {
 		// Mappers
-		YardDefinitionToYardMapper yardMapper = new YardDefinitionToYardMapper();
-		PositionDefinitionToOrientationMapper orientationMapper = new PositionDefinitionToOrientationMapper();
-		PositionDefinitionToPositionMapper positionMapper = new PositionDefinitionToPositionMapper();
-		InstructionDefinitionListToInstructionListMapper instructionsMapper = new InstructionDefinitionListToInstructionListMapper();
+		final YardDefinitionToYardMapper yardMapper = new YardDefinitionToYardMapper();
+		final PositionDefinitionToOrientationMapper orientationMapper = new PositionDefinitionToOrientationMapper();
+		final PositionDefinitionToPositionMapper positionMapper = new PositionDefinitionToPositionMapper();
+		final InstructionDefinitionListToInstructionListMapper instructionsMapper = new InstructionDefinitionListToInstructionListMapper();
 
 		// Current yard
-		Yard yard = yardMapper.map(definition.getYardDefinition());
+		final Yard yard = yardMapper.map(definition.getYardDefinition());
 
 		// All mowers
-		List<MowerDefinition> mowerDefinitions = definition.getMowerDefinitions();
-		for (MowerDefinition mowerDefinition : mowerDefinitions) {
-			Position initialPosition = positionMapper.map(mowerDefinition.getInitialPosition());
-			Orientation initialOrientation = orientationMapper.map(mowerDefinition.getInitialPosition());
+		final List<MowerDefinition> mowerDefinitions = definition.getMowerDefinitions();
+		for (final MowerDefinition mowerDefinition : mowerDefinitions) {
+			final Position initialPosition = positionMapper.map(mowerDefinition.getInitialPosition());
+			final Orientation initialOrientation = orientationMapper.map(mowerDefinition.getInitialPosition());
 
 			// Current mower
-			Mower mower = new Mower(yard, initialPosition, initialOrientation);
+			final Mower mower = new Mower(yard, initialPosition, initialOrientation);
 			mower.addMowerListeners(listeners);
 
 			// Execute all instructions
@@ -48,7 +48,7 @@ public class MowerRunner {
 		}
 	}
 
-	public void addMowerListener(MowerListener listener) {
+	public void addMowerListener(final MowerListener listener) {
 		listeners.add(listener);
 	}
 }

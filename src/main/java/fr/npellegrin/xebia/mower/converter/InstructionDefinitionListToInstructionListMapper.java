@@ -18,10 +18,10 @@ public class InstructionDefinitionListToInstructionListMapper
 	}
 
 	@Override
-	public List<Instruction> map(List<InstructionDefinition> input) {
+	public List<Instruction> map(final List<InstructionDefinition> input) {
 		// FIXME: use Java 8 stream() to simplify conversion
-		List<Instruction> result = new ArrayList<Instruction>();
-		for (InstructionDefinition instruction : input) {
+		final List<Instruction> result = new ArrayList<Instruction>();
+		for (final InstructionDefinition instruction : input) {
 			result.add(instructionMapper.map(instruction));
 		}
 		return result;

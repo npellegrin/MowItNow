@@ -11,7 +11,7 @@ import fr.npellegrin.xebia.mower.parser.model.OrientationDefinition;
 public class OrientationDefinitionToDirectionMapper implements Mapper<OrientationDefinition, Direction> {
 
 	@Override
-	public Direction map(OrientationDefinition input) {
+	public Direction map(final OrientationDefinition input) {
 		switch (input) {
 		case N:
 			return NorthDirection.getInstance();

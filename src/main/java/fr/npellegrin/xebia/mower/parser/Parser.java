@@ -20,40 +20,40 @@ import fr.npellegrin.xebia.mower.parser.model.YardDefinition;
 public class Parser {
 	/**
 	 * Parse a file and build a parser model definition.
-	 * 
+	 *
 	 * @throws FileNotFoundException
 	 */
-	public ParserDefinition parse(String inputFile) throws FileNotFoundException {
-		ParserDefinition result = new ParserDefinition();
-		Scanner scanner = new Scanner(new File(inputFile));
+	public ParserDefinition parse(final String inputFile) throws FileNotFoundException {
+		final ParserDefinition result = new ParserDefinition();
+		final Scanner scanner = new Scanner(new File(inputFile));
 		try {
 			// Yard definition
-			String[] yardLine = scanner.nextLine().split(" ");
-			YardDefinition yardDefinition = new YardDefinition();
+			final String[] yardLine = scanner.nextLine().split(" ");
+			final YardDefinition yardDefinition = new YardDefinition();
 			yardDefinition.setLastCoordX(Integer.valueOf(yardLine[0]));
 			yardDefinition.setLastCoordY(Integer.valueOf(yardLine[1]));
 			result.setYardDefinition(yardDefinition);
 
 			// For each mower, build mower definition
-			List<MowerDefinition> mowerDefinitions = new ArrayList<MowerDefinition>();
-			Map<String, OrientationDefinition> orientationDefinitionMap = OrientationDefinition.orientationMap();
-			Map<String, InstructionDefinition> instructionDefinitionMap = InstructionDefinition.instructionMap();
+			final List<MowerDefinition> mowerDefinitions = new ArrayList<MowerDefinition>();
+			final Map<String, OrientationDefinition> orientationDefinitionMap = OrientationDefinition.orientationMap();
+			final Map<String, InstructionDefinition> instructionDefinitionMap = InstructionDefinition.instructionMap();
 			while (scanner.hasNextLine()) {
 				// Current mower
-				MowerDefinition mowerDefinition = new MowerDefinition();
+				final MowerDefinition mowerDefinition = new MowerDefinition();
 
 				// Initial mower definition
-				String[] positionLine = scanner.nextLine().split(" ");
-				PositionDefinition positionDefinition = new PositionDefinition();
+				final String[] positionLine = scanner.nextLine().split(" ");
+				final PositionDefinition positionDefinition = new PositionDefinition();
 				positionDefinition.setX(Integer.valueOf(positionLine[0]));
 				positionDefinition.setY(Integer.valueOf(positionLine[1]));
 				positionDefinition.setOrientation(orientationDefinitionMap.get(positionLine[2]));
 				mowerDefinition.setInitialPosition(positionDefinition);
 
 				// Mower instructions
-				String instructionLine = scanner.nextLine();
+				final String instructionLine = scanner.nextLine();
 				for (int i = 0; i < instructionLine.length(); i++) {
-					InstructionDefinition instructionDefinition = instructionDefinitionMap
+					final InstructionDefinition instructionDefinition = instructionDefinitionMap
 							.get(String.valueOf(instructionLine.charAt(i)));
 					mowerDefinition.addInstructionDefinition(instructionDefinition);
 				}

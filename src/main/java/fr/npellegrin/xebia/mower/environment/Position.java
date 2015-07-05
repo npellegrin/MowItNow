@@ -3,10 +3,10 @@ package fr.npellegrin.xebia.mower.environment;
 import fr.npellegrin.xebia.mower.orientation.Orientation;
 
 public class Position {
-	private int x;
-	private int y;
+	private final int x;
+	private final int y;
 
-	public Position(int x, int y) {
+	public Position(final int x, final int y) {
 		this.x = x;
 		this.y = y;
 	}
@@ -22,7 +22,7 @@ public class Position {
 	/**
 	 * Get next position when pushing object with a given orientation.
 	 */
-	public Position tryPush(Orientation orientation) {
+	public Position tryPush(final Orientation orientation) {
 		return new Position(x + orientation.getXVector(), y + orientation.getYVector());
 	}
 

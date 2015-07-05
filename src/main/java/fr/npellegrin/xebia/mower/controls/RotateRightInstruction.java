@@ -7,7 +7,7 @@ import fr.npellegrin.xebia.mower.Mower;
  */
 public class RotateRightInstruction implements Instruction {
 	@Override
-	public void applyOn(Mower mower) {
+	public void applyOn(final Mower mower) {
 		mower.rotateRight();
 	}
 }

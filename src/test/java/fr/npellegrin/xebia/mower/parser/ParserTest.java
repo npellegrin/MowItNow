@@ -65,7 +65,7 @@ public class ParserTest {
 		final PositionDefinition initialPosition1 = mowerDefinition1.getInitialPosition();
 		assertThat(initialPosition1.getX()).isEqualTo(1);
 		assertThat(initialPosition1.getY()).isEqualTo(1);
-		assertThat(initialPosition1.getOrientation()).isEqualTo(OrientationDefinition.O);
+		assertThat(initialPosition1.getOrientation()).isEqualTo(OrientationDefinition.W);
 		final List<InstructionDefinition> instructions1 = mowerDefinition1.getInstructionDefinitions();
 		assertThat(instructions1.size()).isEqualTo(12);
 		assertThat(instructions1.get(0)).isEqualTo(InstructionDefinition.A);

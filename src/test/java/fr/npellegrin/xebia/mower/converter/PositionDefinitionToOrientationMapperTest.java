@@ -43,7 +43,7 @@ public class PositionDefinitionToOrientationMapperTest {
 	@Test
 	public void should_map_west_parameters() {
 		final PositionDefinition input = new PositionDefinition();
-		input.setOrientation(OrientationDefinition.O);
+		input.setOrientation(OrientationDefinition.W);
 		final PositionDefinitionToOrientationMapper mapper = new PositionDefinitionToOrientationMapper();
 		final Orientation result = mapper.map(input);
 		assertThat(result.getXVector()).isEqualTo(-1);

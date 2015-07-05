@@ -17,7 +17,7 @@ public class OrientationDefinitionToDirectionMapper implements Mapper<Orientatio
 			return NorthDirection.getInstance();
 		case E:
 			return EastDirection.getInstance();
-		case O:
+		case W:
 			return WestDirection.getInstance();
 		case S:
 			return SouthDirection.getInstance();

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum OrientationDefinition {
-	N("N"), S("S"), E("E"), O("O");
+	N("N"), E("E"), W("W"), S("S");
 
 	private String value;
 

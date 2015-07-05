@@ -17,8 +17,8 @@ public class OrientationDefinitionToDirectionMapperTest {
 		assertThat(mapper.map(OrientationDefinition.E).getYVector()).isEqualTo(0);
 		assertThat(mapper.map(OrientationDefinition.S).getXVector()).isEqualTo(0);
 		assertThat(mapper.map(OrientationDefinition.S).getYVector()).isEqualTo(-1);
-		assertThat(mapper.map(OrientationDefinition.O).getXVector()).isEqualTo(-1);
-		assertThat(mapper.map(OrientationDefinition.O).getYVector()).isEqualTo(0);
+		assertThat(mapper.map(OrientationDefinition.W).getXVector()).isEqualTo(-1);
+		assertThat(mapper.map(OrientationDefinition.W).getYVector()).isEqualTo(0);
 	}
 
 }

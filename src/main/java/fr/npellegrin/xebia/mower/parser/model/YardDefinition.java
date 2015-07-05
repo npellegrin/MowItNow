@@ -1,5 +1,8 @@
 package fr.npellegrin.xebia.mower.parser.model;
 
+/**
+ * Represents a parsed yard definition.
+ */
 public class YardDefinition {
 	private int lastCoordX;
 	private int lastCoordY;

@@ -7,6 +7,9 @@ import fr.npellegrin.xebia.mower.controls.RotateRightInstruction;
 import fr.npellegrin.xebia.mower.exceptions.InvalidInstructionException;
 import fr.npellegrin.xebia.mower.parser.model.InstructionDefinition;
 
+/**
+ * Map an instruction definition to an instruction.
+ */
 public class InstructionDefinitionToInstructionMapper implements Mapper<InstructionDefinition, Instruction> {
 
 	@Override

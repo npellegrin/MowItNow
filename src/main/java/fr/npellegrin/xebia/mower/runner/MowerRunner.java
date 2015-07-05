@@ -16,6 +16,13 @@ import fr.npellegrin.xebia.mower.parser.model.MowerDefinition;
 import fr.npellegrin.xebia.mower.parser.model.ParserDefinition;
 
 public class MowerRunner {
+	// Mappers
+	private static final YardDefinitionToYardMapper YARD_MAPPER = new YardDefinitionToYardMapper();
+	private static final PositionDefinitionToOrientationMapper ORIENTATION_MAPPER = new PositionDefinitionToOrientationMapper();
+	private static final PositionDefinitionToPositionMapper POSITION_MAPPER = new PositionDefinitionToPositionMapper();
+	private static final InstructionDefinitionListToInstructionListMapper INSTRUCTIONS_MAPPER = new InstructionDefinitionListToInstructionListMapper();
+
+	// Listeners
 	private final List<MowerListener> listeners;
 
 	public MowerRunner() {
@@ -23,20 +30,14 @@ public class MowerRunner {
 	}
 
 	public void execute(final ParserDefinition definition) {
-		// Mappers
-		final YardDefinitionToYardMapper yardMapper = new YardDefinitionToYardMapper();
-		final PositionDefinitionToOrientationMapper orientationMapper = new PositionDefinitionToOrientationMapper();
-		final PositionDefinitionToPositionMapper positionMapper = new PositionDefinitionToPositionMapper();
-		final InstructionDefinitionListToInstructionListMapper instructionsMapper = new InstructionDefinitionListToInstructionListMapper();
-
 		// Current yard
-		final Yard yard = yardMapper.map(definition.getYardDefinition());
+		final Yard yard = YARD_MAPPER.map(definition.getYardDefinition());
 
 		// All mowers
 		final List<MowerDefinition> mowerDefinitions = definition.getMowerDefinitions();
 		for (final MowerDefinition mowerDefinition : mowerDefinitions) {
-			final Position initialPosition = positionMapper.map(mowerDefinition.getInitialPosition());
-			final Orientation initialOrientation = orientationMapper.map(mowerDefinition.getInitialPosition());
+			final Position initialPosition = POSITION_MAPPER.map(mowerDefinition.getInitialPosition());
+			final Orientation initialOrientation = ORIENTATION_MAPPER.map(mowerDefinition.getInitialPosition());
 
 			// Current mower
 			final Mower mower = new Mower(yard, initialPosition, initialOrientation);
@@ -44,7 +45,7 @@ public class MowerRunner {
 
 			// Execute all instructions
 			// (mowers will broadcast the final position after move).
-			mower.accept(instructionsMapper.map(mowerDefinition.getInstructionDefinitions()));
+			mower.accept(INSTRUCTIONS_MAPPER.map(mowerDefinition.getInstructionDefinitions()));
 		}
 	}
 
